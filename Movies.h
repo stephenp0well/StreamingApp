@@ -17,9 +17,9 @@ public:
         string GetmovieName() { return movieName; }
         void SetmovieName(string val) { movieName = val; }
         int GetreleaseYear() { return releaseYear; }
-        void SetreleaseYear(int val) { releaseYear = val; }
+        void SetreleaseYear(int val);
         float Getduration() { return duration; }
-        void Setduration(float val) { duration = val; }
+        void Setduration(float val);
         string Getgenre() { return genre; }
         void Setgenre(string val) { genre = val; }
         string Getdirector() { return director; }
