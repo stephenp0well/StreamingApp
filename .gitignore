@@ -30,3 +30,25 @@
 *.exe
 *.out
 *.app
+
+# Additional files
+*.ipch
+*.pdb
+*.idb
+*.ilk
+*.tlog
+*.log
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sdf
+*.opensdf
+*.suo
+*.ncb
+*.user
+*.sln
+*.swp
+*.bak
+*.tmp
+*.dSYM/
+*.vscode
