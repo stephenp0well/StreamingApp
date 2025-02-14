@@ -3,16 +3,19 @@
 
 #pragma once
 
-class Movie
+#include "Media.h"
+class Movie : public Media
 {
 public:
     Movie();
+    Movie(string n, string rd, double b, double r); // Constructor with initialiser list
     ~Movie();
 
-    void setBoxOfficeValue(double val) { boxOfficeValue = val; }
+    void setBoxOfficeValue(double val);
     double getBoxOfficeValue() { return boxOfficeValue; }
-    void setRating(double val) { rating = val; }
+    void setRating(double val);
     double getRating() { return rating; }
+    void display();
 
 private:
     double boxOfficeValue;

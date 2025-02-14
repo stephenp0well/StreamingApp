@@ -3,16 +3,19 @@
 
 #pragma once
 
-class TV_Series
+#include "Media.h"
+class TV_Series : public Media
 {
 public:
     TV_Series();
+    TV_Series(string n, string rd, int ne, int ns); // Constructor with initialiser list
     ~TV_Series();
 
-    void setNumEpisodes(int val) { numEpisodes = val; }
+    void setNumEpisodes(int val);
     int getNumEpisodes() { return numEpisodes; }
-    void setNumSeasons(int val) { numSeasons = val; }
+    void setNumSeasons(int val);
     int getNumSeasons() { return numSeasons; }
+    void display();
 
 private:
     int numEpisodes;
