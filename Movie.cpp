@@ -5,7 +5,7 @@ Movie::Movie()
 
 }
 
-Movie::Movie(string n, string rd, double b, double r) : Media(n, rd), boxOfficeValue(b), rating(r) // Constructor with initialiser list
+Movie::Movie(string n, string rd, double b, double r, Director director, Streaming_Service streamingService) : Media(n, rd), boxOfficeValue(b), rating(r), director(director), streamingService(streamingService) // Constructor with initialiser list
 {
    cout << "Movie constructor with initialiser list called" << endl;
 }
@@ -28,6 +28,13 @@ void Movie::display() // Overriding the display function from Media
         cout << boxOfficeValue << endl; // If the box office value is less than 1 million
     }
     cout << "Rating: " << rating << endl;
+
+    // Displaying director details
+    cout << "Director Experience: " << director.getExperienceYears() << " years" << endl;
+    cout << "Awards Won by Director: " << director.getAwardsWon() << endl;
+
+    // Displaying streaming service details
+    cout << "Streaming on: " << streamingService.getAvailableRegion() << " | Price: $" << streamingService.getPrice() << endl;
 }
 
 void Movie::setBoxOfficeValue(double val)

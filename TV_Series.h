@@ -4,11 +4,13 @@
 #pragma once
 
 #include "Media.h"
+#include "Director.h"
+#include "Streaming_Service.h"
 class TV_Series : public Media
 {
 public:
     TV_Series();
-    TV_Series(string n, string rd, int ne, int ns); // Constructor with initialiser list
+    TV_Series(string n, string rd, int ne, int ns, Director director, Streaming_Service streamingService); // Constructor with initialiser list
     ~TV_Series();
 
     void setNumEpisodes(int val);
@@ -20,6 +22,9 @@ public:
 private:
     int numEpisodes;
     int numSeasons;
+
+    Director director; 
+    Streaming_Service streamingService;
 };
 
 #endif

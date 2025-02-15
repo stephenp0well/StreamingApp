@@ -9,6 +9,7 @@ class Director
 {
 public:
     Director();
+    Director(int val1, int val2);
     ~Director();
 
     void setExperienceYears(int val) { experienceYears = val; }
