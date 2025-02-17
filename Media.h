@@ -13,6 +13,8 @@ using namespace std;
 
 class Media {
     public:
+        static int mediaCount; // Static variable to keep track of the number of Media objects created
+
         Media();
         Media(string n, string r, Director d, Streaming_Service s); // constructor with initialiser list
         ~Media();

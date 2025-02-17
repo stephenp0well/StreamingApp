@@ -1,20 +1,25 @@
 #include "Media.h"
 
+int Media::mediaCount = 0; // Static variable to keep track of the number of Media objects created
+
 Media::Media()
 {
     name = "";
-    releaseDate = "";   
+    releaseDate = "";
+    mediaCount++;   
 }
 
 Media::Media(string n, string r, Director d, Streaming_Service s) 
     : name(n), releaseDate(r), director(d), streamingService(s) // Constructor with initializer list
 {
     cout << "***Media constructor with initializer list called***" << endl;
+    mediaCount++;
 }
 
 Media::~Media()
 {
-
+    cout << "***Media destructor called***" << endl;
+    mediaCount--;
 }
 
 void Media::display()

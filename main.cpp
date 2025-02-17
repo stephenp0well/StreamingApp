@@ -25,5 +25,7 @@ int main()
         mediaVec[i]->display(); // Calling the display function using the vector
     }
 
+    cout << "Media Count: " << Media::mediaCount << endl; // Displaying the media count
+
     return 0;
 }
