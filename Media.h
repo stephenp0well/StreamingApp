@@ -2,6 +2,8 @@
 #define MEDIA_H
 #include <string>
 #include <iostream>
+#include "Director.h"
+#include "Streaming_Service.h"
 #pragma once
 using namespace std;
 
@@ -12,7 +14,7 @@ using namespace std;
 class Media {
     public:
         Media();
-        Media(string n, string r, Director dir, Streaming_Service stream); // Constructor with initialiser list
+        Media(string n, string r, Director d, Streaming_Service s); // constructor with initialiser list
         ~Media();
 
         void setName(string val);

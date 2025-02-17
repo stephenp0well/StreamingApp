@@ -9,7 +9,7 @@ class Movie : public Media
 {
 public:
     Movie();
-    Movie(string n, string rd, double b, double r, Director director, Streaming_Service streamingService); // Constructor with initialiser list
+    Movie(string n, string rd, double b, double r, Director d, Streaming_Service s); // Constructor with initialiser list
     ~Movie();
 
     void setBoxOfficeValue(double val);

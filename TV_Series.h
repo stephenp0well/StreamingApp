@@ -9,7 +9,7 @@ class TV_Series : public Media
 {
 public:
     TV_Series();
-    TV_Series(string n, string rd, int ne, int ns, Director director, Streaming_Service streamingService); // Constructor with initialiser list
+    TV_Series(string n, string rd, int ne, int ns, Director d, Streaming_Service s); // Constructor with initialiser list
     ~TV_Series();
 
     void setNumEpisodes(int val);
@@ -21,7 +21,6 @@ public:
 private:
     int numEpisodes;
     int numSeasons;
-    
 };
 
 #endif

@@ -5,9 +5,10 @@ Media::Media()
 
 }
 
-Media::Media(string n, string r, Director dir, Streaming_Service stream) : name(n), releaseDate(r), director(dir), streamingService(stream) // Constructor with initialiser list
+Media::Media(string n, string r, Director d, Streaming_Service s) 
+    : name(n), releaseDate(r), director(d), streamingService(s) // Constructor with initializer list
 {
-    cout << "Media constructor with initialiser list called" << endl;
+    cout << "Media constructor with initializer list called" << endl;
 }
 
 Media::~Media()
