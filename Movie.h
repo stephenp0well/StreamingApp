@@ -4,8 +4,7 @@
 #pragma once
 
 #include "Media.h"
-#include "Director.h"
-#include "Streaming_Service.h"
+
 class Movie : public Media
 {
 public:
@@ -22,10 +21,6 @@ public:
 private:
     double boxOfficeValue;
     double rating;
-
-    // Creating objects for Director & Streaming_Service classes
-    Director director; 
-    Streaming_Service streamingService;
     
 };
 

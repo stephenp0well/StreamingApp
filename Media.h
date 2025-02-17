@@ -5,22 +5,31 @@
 #pragma once
 using namespace std;
 
+#include "Director.h"
+#include "Streaming_Service.h"
+
 
 class Media {
     public:
         Media();
-        Media(string n, string r); // Constructor with initialiser list
+        Media(string n, string r, Director dir, Streaming_Service stream); // Constructor with initialiser list
         ~Media();
 
         void setName(string val);
         string getName() { return name; }
         void setReleaseDate(string val);
         string getReleaseDate() { return releaseDate; }
+        void setDirector(Director);
+        void setStreaming_Service(Streaming_Service);
         virtual void display() = 0;
 
     private:
         string name;
         string releaseDate;
+
+        Director director; 
+        Streaming_Service streamingService;
+        
     };
 
 #endif

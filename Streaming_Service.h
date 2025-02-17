@@ -4,7 +4,7 @@
 #pragma once
 using namespace std; 
 #include <string>
-
+#include <iostream>
 
 class Streaming_Service
 {
@@ -17,6 +17,7 @@ public:
     int getPrice() { return price; }
     void setAvailableRegion(string val) { availableRegions = val; }
     string getAvailableRegion() { return availableRegions; }
+    void display();
 
 private:
     int price;

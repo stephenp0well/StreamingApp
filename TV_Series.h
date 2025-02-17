@@ -4,8 +4,7 @@
 #pragma once
 
 #include "Media.h"
-#include "Director.h"
-#include "Streaming_Service.h"
+
 class TV_Series : public Media
 {
 public:
@@ -22,9 +21,7 @@ public:
 private:
     int numEpisodes;
     int numSeasons;
-
-    Director director; 
-    Streaming_Service streamingService;
+    
 };
 
 #endif

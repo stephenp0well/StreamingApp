@@ -16,3 +16,10 @@ Director::~Director()
 {
 
 }
+
+void Director::display()
+{
+    // Displaying director details
+    cout << "Director Experience: " << experienceYears << " years" << endl;
+    cout << "Awards Won by Director: " << awardsWon << endl;
+}

@@ -5,7 +5,7 @@ TV_Series::TV_Series()
 
 }
 
-TV_Series::TV_Series(string n, string rd, int ne, int ns, Director director, Streaming_Service streamingService) : Media(n, rd), numEpisodes(ne), numSeasons(ns), director(director), streamingService(streamingService) // Constructor with initialiser list
+TV_Series::TV_Series(string n, string rd, int ne, int ns, Director director, Streaming_Service streamingService) : Media(n, rd, director, streamingService), numEpisodes(ne), numSeasons(ns)// Constructor with initialiser list
 {
     cout << "TV_Series constructor with initialiser list called" << endl;
 }
@@ -22,12 +22,6 @@ void TV_Series::display() // Overriding the display function from Media
     cout << "Number of Episodes: " << numEpisodes << endl;
     cout << "Number of Seasons: " << numSeasons << endl;
 
-    // Displaying director details
-    cout << "Director Experience: " << director.getExperienceYears() << " years" << endl;
-    cout << "Awards Won by Director: " << director.getAwardsWon() << endl;
-
-    // Displaying streaming service details
-    cout << "Streaming on: " << streamingService.getAvailableRegion() << " | Price: $" << streamingService.getPrice() << endl;
 }
 
 void TV_Series::setNumEpisodes(int val)

@@ -16,3 +16,9 @@ Streaming_Service::~Streaming_Service()
 {
 
 }
+
+void Streaming_Service::display()
+{
+    // Displaying streaming service details
+    cout << "Streaming on: " << availableRegions << " | Price: $" << price << endl;
+}

@@ -4,6 +4,7 @@
 #pragma once
 using namespace std;
 #include <string>
+#include <iostream>
 
 class Director
 {
@@ -16,6 +17,7 @@ public:
     int getExperienceYears() { return experienceYears; }
     void setAwardsWon(int val) { awardsWon = val; }
     int getAwardsWon() { return awardsWon; }
+    void display();
 
 private:
     int experienceYears;
