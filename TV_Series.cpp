@@ -2,12 +2,13 @@
 
 TV_Series::TV_Series()
 {
-
+    numEpisodes = 0;
+    numSeasons = 0;
 }
 
 TV_Series::TV_Series(string n, string rd, int ne, int ns, Director d, Streaming_Service s): Media(n, rd, d, s), numEpisodes(ne), numSeasons(ns) // Constructor with initialiser list
 {
-    cout << "TV_Series constructor with initialiser list called" << endl;
+    cout << "***TV_Series constructor with initialiser list called***" << endl;
 }
 
 TV_Series::~TV_Series()
@@ -17,7 +18,7 @@ TV_Series::~TV_Series()
 
 void TV_Series::display() // Overriding the display function from Media
 {
-    cout << "Displaying from TV_Series" << endl;
+    cout << "***Displaying from TV_Series***" << endl;
     Media::display();
     cout << "Number of Episodes: " << numEpisodes << endl;
     cout << "Number of Seasons: " << numSeasons << endl;

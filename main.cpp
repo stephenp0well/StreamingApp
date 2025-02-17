@@ -21,7 +21,7 @@ int main()
 
     for (int i = 0; i < mediaVec.size(); i++) // Looping through the vector
     {
-        cout << "Vector Display Function Used" << endl;
+        cout << "***Vector Display Function Used***" << endl;
         mediaVec[i]->display(); // Calling the display function using the vector
     }
 

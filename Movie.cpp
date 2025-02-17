@@ -2,12 +2,13 @@
 
 Movie::Movie()
 {
-
+    boxOfficeValue = 0;
+    rating = 0;
 }
 
 Movie::Movie(string n, string rd, double b, double r, Director d, Streaming_Service s): Media(n, rd, d, s), boxOfficeValue(b), rating(r) // Constructor with initialiser list
 {
-   cout << "Movie constructor with initialiser list called" << endl;
+   cout << "***Movie constructor with initialiser list called***" << endl;
 }
 
 Movie::~Movie()
@@ -17,7 +18,7 @@ Movie::~Movie()
 
 void Movie::display() // Overriding the display function from Media
 {
-    cout << "Displaying from Movie" << endl;
+    cout << "***Displaying from Movie***" << endl;
     Media::display();
     cout << "Box Office Value: ";
     if (boxOfficeValue >= 1e9) { // Cleaning up the output
