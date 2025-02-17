@@ -5,9 +5,10 @@ Media::Media()
 
 }
 
-Media::Media(string n, string r) : name(n), releaseDate(r) // Constructor with initialiser list
+Media::Media(string n, string r, Director d, Streaming_Service s) 
+    : name(n), releaseDate(r), director(d), streamingService(s) // Constructor with initializer list
 {
-    cout << "Media constructor with initialiser list called" << endl;
+    cout << "Media constructor with initializer list called" << endl;
 }
 
 Media::~Media()
@@ -19,6 +20,13 @@ void Media::display()
 {
     cout << "Name: " << name << endl;
     cout << "Release Date: " << releaseDate << endl;
+
+    // Displaying director details
+    cout << "Director Experience: " << director.getExperienceYears() << " years" << endl;
+    cout << "Awards Won by Director: " << director.getAwardsWon() << endl;
+
+    // Displaying streaming service details
+    cout << "Streaming on: " << streamingService.getAvailableRegion() << " | Price: $" << streamingService.getPrice() << endl;
 }
 
 void Media::setName(string val)
