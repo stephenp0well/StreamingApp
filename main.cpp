@@ -18,8 +18,9 @@ int main() {
              << "2. Add a TV Series\n"
              << "3. Display All Media\n"
              << "4. Exit\n";
-        cin >> choice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer properly
+        //cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+        getline(cin, choice);
+        //cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer properly
 
         if (choice == "1" || choice == "2") {
             // Collect general media details
