@@ -6,7 +6,7 @@ Movie::Movie() // Default constructor
     rating = 0;
 }
 
-Movie::Movie(string n, string rd, double b, double r, Director d, Streaming_Service s): Media(n, rd, d, s), boxOfficeValue(b), rating(r) // Constructor with initialiser list
+Movie::Movie(string n, string rd, double b, double r, Director* d, Streaming_Service s): Media(n, rd, d, s), boxOfficeValue(b), rating(r) // Constructor with initialiser list
 {
    cout << "***Movie constructor with initialiser list called***" << endl;
 }

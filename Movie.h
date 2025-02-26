@@ -9,7 +9,7 @@ class Movie : public Media // Inheriting from the Media class
 {
 public:
     Movie(); // Default constructor
-    Movie(string n, string rd, double b, double r, Director d, Streaming_Service s); // Constructor with initialiser list
+    Movie(string n, string rd, double b, double r, Director* d, Streaming_Service s); // Constructor with initialiser list
     ~Movie(); // Destructor
 
     void setBoxOfficeValue(double val); // Setter function

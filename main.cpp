@@ -9,6 +9,7 @@ using namespace std;
 
 int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
+    vector<Director*> directors; // Vector to store directors
     string choice; // Initializing variable for user input. We are using a string as opposed to an integer to prevent errors if the user enters a character instead of an integer.
 
     while (true) {
@@ -17,10 +18,9 @@ int main() {
              << "1. Add a Movie\n"
              << "2. Add a TV Series\n"
              << "3. Display All Media\n"
-             << "4. Exit\n";
-        //cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+             << "4. Display All Directors\n"
+             << "5. Exit\n"; 
         getline(cin, choice); // storr user input in choice variable
-        //cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer properly
 
         if (choice == "1" || choice == "2") {
             // Collect general media details
@@ -31,13 +31,27 @@ int main() {
             getline(cin, name);
             cout << "Enter release date: ";
             getline(cin, releaseDate);
+
+
             cout << "Enter director's years of experience: ";
             cin >> experienceYears;
             cout << "Enter number of awards won: ";
             cin >> awardsWon;
 
-            // Create Director object
-            Director director(experienceYears, awardsWon);
+            // Check if a director with the same experience and awards exists
+            Director* director = nullptr;
+            for (auto d : directors) {
+                if (d->getExperienceYears() == experienceYears && d->getAwardsWon() == awardsWon) {
+                    director = d;
+                    break;
+                }
+            }
+
+            // If no matching director is found, create a new one
+            if (!director) {
+                director = new Director(experienceYears, awardsWon);
+                directors.push_back(director);
+            }
 
             cout << "Enter streaming service price: ";
             cin >> price;
@@ -86,6 +100,16 @@ int main() {
             }
         } 
         else if (choice == "4") {
+            if (directors.empty()) {
+                cout << "No directors to display.\n"; 
+            } else {
+                cout << "\n*** Displaying All Directors ***\n";
+                for (const auto& dir : directors) {
+                    dir->display();
+                }
+            }
+        } 
+        else if (choice == "5") {
             break;  // Exit the loop
         } 
         else {
@@ -96,6 +120,9 @@ int main() {
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
         delete media;
+    }
+    for (auto director : directors) {
+        delete director;
     }
 
     return 0;

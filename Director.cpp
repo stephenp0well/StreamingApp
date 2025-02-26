@@ -22,4 +22,12 @@ void Director::display() // Display function
     // Displaying director details
     cout << "Director Experience: " << experienceYears << " years" << endl;
     cout << "Awards Won by Director: " << awardsWon << endl;
+
+    for (const auto& media : mediaList) {
+        cout << " - " << media->getName() << " (" << media->getReleaseDate() << ")" << endl;
+    }
+}
+
+void Director::addMedia(Media* media) {
+    // Implementation
 }

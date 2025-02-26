@@ -5,6 +5,10 @@
 using namespace std;
 #include <string>
 #include <iostream>
+#include <vector>
+#include "Media.h"
+
+class Media; // Forward declaration of the Media class to avoid compilation error 
 
 class Director
 {
@@ -16,11 +20,14 @@ public:
     void setExperienceYears(int val) { experienceYears = val; } // Setter function
     int getExperienceYears() { return experienceYears; } // Getter function
     int getAwardsWon() { return awardsWon; } // Getter function
+
+    void addMedia(Media* media); // Function to add media to the director
     void display(); //  Display function
 
 private:
     int experienceYears;
     int awardsWon;
+    vector<Media*> mediaList; // Stores all media directed by this director
 };
 
 #endif

@@ -6,7 +6,7 @@ TV_Series::TV_Series() // Default constructor
     numSeasons = 0;
 }
 
-TV_Series::TV_Series(string n, string rd, int ne, int ns, Director d, Streaming_Service s): Media(n, rd, d, s), numEpisodes(ne), numSeasons(ns) // Constructor with initialiser list
+TV_Series::TV_Series(string n, string rd, int ne, int ns, Director* d, Streaming_Service s): Media(n, rd, d, s), numEpisodes(ne), numSeasons(ns) // Constructor with initialiser list
 {
     cout << "***TV_Series constructor with initialiser list called***" << endl;
 }
