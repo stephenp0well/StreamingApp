@@ -8,15 +8,15 @@
 class TV_Series : public Media
 {
 public:
-    TV_Series();
+    TV_Series(); // Default constructor
     TV_Series(string n, string rd, int ne, int ns, Director d, Streaming_Service s); // Constructor with initialiser list
-    ~TV_Series();
+    ~TV_Series(); // Destructor
 
-    void setNumEpisodes(int val);
-    int getNumEpisodes() { return numEpisodes; }
-    void setNumSeasons(int val);
-    int getNumSeasons() { return numSeasons; }
-    void display();
+    void setNumEpisodes(int val); // Setter function
+    int getNumEpisodes() { return numEpisodes; } // Getter function
+    void setNumSeasons(int val); // Setter function
+    int getNumSeasons() { return numSeasons; } //  Getter function
+    void display(); // Display function
 
 private:
     int numEpisodes;

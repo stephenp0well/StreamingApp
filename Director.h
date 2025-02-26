@@ -9,15 +9,14 @@ using namespace std;
 class Director
 {
 public:
-    Director();
-    Director(int val1, int val2);
-    ~Director();
+    Director(); // Default constructor
+    Director(int val1, int val2); // Constructor with parameters (overloaded constructor)
+    ~Director(); // Destructor
 
-    void setExperienceYears(int val) { experienceYears = val; }
-    int getExperienceYears() { return experienceYears; }
-    void setAwardsWon(int val) { awardsWon = val; }
-    int getAwardsWon() { return awardsWon; }
-    void display();
+    void setExperienceYears(int val) { experienceYears = val; } // Setter function
+    int getExperienceYears() { return experienceYears; } // Getter function
+    int getAwardsWon() { return awardsWon; } // Getter function
+    void display(); //  Display function
 
 private:
     int experienceYears;

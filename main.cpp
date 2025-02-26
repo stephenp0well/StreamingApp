@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
-    string choice;
+    string choice; // Initializing variable for user input. We are using a string as opposed to an integer to prevent errors if the user enters a character instead of an integer.
 
     while (true) {
         // Display menu options
@@ -19,7 +19,7 @@ int main() {
              << "3. Display All Media\n"
              << "4. Exit\n";
         //cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-        getline(cin, choice);
+        getline(cin, choice); // storr user input in choice variable
         //cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer properly
 
         if (choice == "1" || choice == "2") {
@@ -59,7 +59,7 @@ int main() {
                 cin >> rating;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
 
-                mediaVec.push_back(new Movie(name, releaseDate, boxOffice, rating, director, service));
+                mediaVec.push_back(new Movie(name, releaseDate, boxOffice, rating, director, service)); // storing the Movie object in the vector
             } 
             // TV Series-specific details
             else if (choice == "2") {
@@ -71,17 +71,17 @@ int main() {
                 cin >> seasons;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
 
-                mediaVec.push_back(new TV_Series(name, releaseDate, episodes, seasons, director, service));
+                mediaVec.push_back(new TV_Series(name, releaseDate, episodes, seasons, director, service)); // storing the TV_Series object in the vector
             }
         } 
         else if (choice == "3") {
             // Display all media
             if (mediaVec.empty()) {
-                cout << "No media to display.\n";
+                cout << "No media to display.\n"; // Display message if the vector is empty
             } else {
                 cout << "\n*** Displaying All Media ***\n";
-                for (const auto& media : mediaVec) {
-                    media->display();
+                for (const auto& media : mediaVec) { // Sorting the vector of media objects so that all of the objects can be displayed
+                    media->display(); // Display the media object using a pointer
                 }
             }
         } 
@@ -89,7 +89,7 @@ int main() {
             break;  // Exit the loop
         } 
         else {
-            cout << "Invalid choice. Try again.\n";
+            cout << "Invalid choice. Try again.\n"; // error message if the user enters an invalid choice
         }
     }
 

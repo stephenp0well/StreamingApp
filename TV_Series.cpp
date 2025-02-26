@@ -1,6 +1,6 @@
 #include "TV_Series.h"
 
-TV_Series::TV_Series()
+TV_Series::TV_Series() // Default constructor
 {
     numEpisodes = 0;
     numSeasons = 0;
@@ -11,7 +11,7 @@ TV_Series::TV_Series(string n, string rd, int ne, int ns, Director d, Streaming_
     cout << "***TV_Series constructor with initialiser list called***" << endl;
 }
 
-TV_Series::~TV_Series()
+TV_Series::~TV_Series() // Destructor
 {
 
 }
@@ -24,7 +24,7 @@ void TV_Series::display() // Overriding the display function from Media
     cout << "Number of Seasons: " << numSeasons << endl;
 }
 
-void TV_Series::setNumEpisodes(int val)
+void TV_Series::setNumEpisodes(int val) // Setter function
 {
     if (val <= 0) // Data integrity check
     {
@@ -36,7 +36,7 @@ void TV_Series::setNumEpisodes(int val)
     }
 }
 
-void TV_Series::setNumSeasons(int val)
+void TV_Series::setNumSeasons(int val) // Setter function
 {
     if (val <= 0) // Data integrity check
     {

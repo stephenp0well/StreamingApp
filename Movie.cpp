@@ -1,6 +1,6 @@
 #include "Movie.h"
 
-Movie::Movie()
+Movie::Movie() // Default constructor
 {
     boxOfficeValue = 0;
     rating = 0;
@@ -11,7 +11,7 @@ Movie::Movie(string n, string rd, double b, double r, Director d, Streaming_Serv
    cout << "***Movie constructor with initialiser list called***" << endl;
 }
 
-Movie::~Movie()
+Movie::~Movie() // Destructor
 {
 
 }
@@ -32,7 +32,7 @@ void Movie::display() // Overriding the display function from Media
 
 }
 
-void Movie::setBoxOfficeValue(double val)
+void Movie::setBoxOfficeValue(double val) // Setter function
 {
     if (val <= 0) // Data integrity check
     {
@@ -44,7 +44,7 @@ void Movie::setBoxOfficeValue(double val)
     }
 }
 
-void Movie::setRating(double val)
+void Movie::setRating(double val) // Setter function
 {
     if (val < 0 || val > 10) // Data integrity check
     {
