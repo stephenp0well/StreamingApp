@@ -1,12 +1,12 @@
 #include "Director.h"
 
-Director::Director() // Default constructor
+Director::Director() : maxNofItems(10)// Default constructor
 {
     experienceYears = 0;
     awardsWon = 0;
 }
 
-Director::Director(int val1, int val2) // Constructor with parameters (overloaded constructor)
+Director::Director(int val1, int val2) : maxNofItems(10) // Constructor with parameters (overloaded constructor)
 {
     experienceYears = val1;
     awardsWon = val2;
@@ -34,5 +34,9 @@ void Director::display() // Display function
 }
 
 void Director::addMedia(Media* media) {
+    if (mediaList.size() >= maxNofItems) {
+        std::cout << "Cannot add more media to this director." << std::endl;
+        return;
+    }else
     mediaList.push_back(media);
 }

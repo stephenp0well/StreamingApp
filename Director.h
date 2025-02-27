@@ -27,7 +27,8 @@ public:
 private:
     int experienceYears;
     int awardsWon;
-    vector<Media*> mediaList; // Stores all media directed by this director
+    vector<Media*> mediaList;
+    const int maxNofItems; // Stores all media directed by this director
 };
 
 #endif
