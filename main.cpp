@@ -48,15 +48,16 @@ int main() {
             }
 
             // If no matching director is found, create a new one
+
             if (!director) {
                 director = new Director(experienceYears, awardsWon);
                 directors.push_back(director);
             }
-
+            
             cout << "Enter streaming service price: ";
             cin >> price;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
-            cout << "Enter available regions: ";
+            cout << "Enter available streaming service: ";
             getline(cin, availableRegions);
 
             // Create Streaming_Service object
