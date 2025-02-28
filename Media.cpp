@@ -39,7 +39,6 @@ void Media::display() // Display function
         cout << "No Director Assigned." << endl;
     }
 
-    //director.display(); // Display director details
     streamingService.display(); // Display streaming service details
 }
 

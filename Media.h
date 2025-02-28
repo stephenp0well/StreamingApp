@@ -22,7 +22,6 @@ class Media {
         string getName() { return name; } // getter function
         void setReleaseDate(string val); // setter function
         string getReleaseDate() { return releaseDate; } // getter function
-        //void setDirector(Director); // setter function
         void setStreaming_Service(Streaming_Service); // setter function
         virtual void display() = 0; // pure virtual function
 
@@ -30,8 +29,8 @@ class Media {
         string name;
         string releaseDate;
 
-        Director* director; // Director object
-        Streaming_Service streamingService; // Streaming_Service object
+        Director* director; // Director pointer
+        Streaming_Service streamingService; // Streaming_Service object for 1:1 relationship
         
     };
 
