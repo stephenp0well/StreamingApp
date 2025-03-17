@@ -24,4 +24,9 @@ private:
     
 };
 
+    bool operator==(Movie&, Movie&); // Overloading the == operator
+    bool operator!=(Movie&, Movie&); // Overloading the != operator
+    bool operator<(Movie&, Movie&); // Overloading the < operator
+    bool operator>(Movie&, Movie&); // Overloading the > operator
+
 #endif

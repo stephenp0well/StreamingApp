@@ -55,3 +55,28 @@ void Movie::setRating(double val) // Setter function
         rating = val;
     }
 }
+
+bool operator==(Movie& pli1, Movie& pli2) // Overloading the == operator
+{
+    // Compare the box office value and rating of the two movies
+    return pli1.getBoxOfficeValue() == pli2.getBoxOfficeValue() && pli1.getRating() == pli2.getRating();
+}
+
+bool operator!=(Movie& pli1, Movie& pli2) // Overloading the != operator
+{
+    // Compare the box office value and rating of the two movies
+    return pli1.getBoxOfficeValue() != pli2.getBoxOfficeValue() || pli1.getRating() != pli2.getRating();
+}
+
+bool operator<(Movie& pli1, Movie& pli2) // Overloading the < operator
+{
+    // Compare the rating of the two movies
+    return pli1.getRating() < pli2.getRating();
+}
+
+bool operator>(Movie& pli1, Movie& pli2) // Overloading the > operator
+{
+    // Compare the rating of the two movies
+    return pli1.getRating() > pli2.getRating();
+}
+
