@@ -16,6 +16,8 @@ class Media {
 
         Media(); // default constructor
         Media(string n, string r, Director* d, Streaming_Service s); // constructor with initialiser list
+        Media(Media& source); // copy constructor
+        Media &operator=(Media &source); // user-defined assignment operator
         ~Media(); // destructor
 
         void setName(string val); // setter function

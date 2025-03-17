@@ -12,6 +12,13 @@ Director::Director(int val1, int val2) : maxNofItems(10) // Constructor with par
     awardsWon = val2;
 }
 
+Director::Director(const Director& other) : maxNofItems(other.maxNofItems)
+{
+    experienceYears = other.experienceYears;
+    awardsWon = other.awardsWon;
+    mediaList = other.mediaList;
+}
+
 Director::~Director() // Destructor
 {
 
@@ -39,4 +46,14 @@ void Director::addMedia(Media* media) {
         return;
     }else
     mediaList.push_back(media);
+}
+
+Director& Director::operator=(const Director& other) // Assignment operator
+{
+    if (this != &other) {
+        experienceYears = other.experienceYears;
+        awardsWon = other.awardsWon;
+        mediaList = other.mediaList;
+    }
+    return *this;
 }

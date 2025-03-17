@@ -21,10 +21,57 @@ Media::Media(string n, string r, Director* d, Streaming_Service s) // Constructo
     }
 }
 
-Media::~Media() // Destructor
+Media::Media(Media &objBeingCopied) // Copy constructor
 {
-    cout << "***Media destructor called***" << endl;
-    mediaCount--;
+	cout << "user-defined copy constructor, object being copied is " << objBeingCopied.getName() << endl;
+	// shallow copy of the variable values that are not pointers values 
+	this->getName() = objBeingCopied.getName();
+	//this->getDuration() = objBeingCopied.getDuration();
+	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
+	if (objBeingCopied.director)
+	{
+		director = new Director(); // allocate dynamic memory from the heap for our copy
+		*director = *(objBeingCopied.director);
+	}
+	else {
+		director = 0;
+	}
+	mediaCount++;
+}
+
+Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operator for deep coyping of pointer fields
+{
+	cout << "overloaded assignment operator, object being copied is " << objBeingCopied.getName() << endl;
+	// check for self-assignment to avoid copying an object to itself e.g. s1 = s1;
+	if (this == &objBeingCopied) 
+		return *this; //skip the rest of the function as there is no need for it
+
+    // deallocate any memory that the object being updated is holding!
+	delete director;
+	// shallow copy of the variable values that are not pointers values
+	this->name = objBeingCopied.getName();
+	this->releaseDate = objBeingCopied.getReleaseDate();
+
+	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
+	if (objBeingCopied.director) //check that the pointer for the object being copied has a value
+	{
+		director = new Director(); // allocate new memory to hold the Artist details for the object being updated
+		*director = *objBeingCopied.director;
+	}
+	else {
+		director = 0;
+	}
+    return *this;
+}
+
+Media::~Media() { //user defined destuctor to handle deallocation of dynamic memory
+	cout<<"calling destructor for "<< this->getName()<<endl;
+	mediaCount--; //decrement the counter
+	if (director != nullptr)
+	{
+		delete director;	  // Release memory allocated for the artist object
+		director = nullptr; // Set the pointer to null to avoid double deletion
+	}
 }
 
 void Media::display() // Display function
