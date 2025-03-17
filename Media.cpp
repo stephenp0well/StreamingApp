@@ -27,6 +27,7 @@ Media::Media(Media &objBeingCopied) // Copy constructor
 	// shallow copy of the variable values that are not pointers values 
 	this->getName() = objBeingCopied.getName();
 	this->getReleaseDate() = objBeingCopied.getReleaseDate();
+    this->streamingService = objBeingCopied.streamingService;
 	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
 	if (objBeingCopied.director)
 	{
@@ -51,6 +52,7 @@ Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operato
 	// shallow copy of the variable values that are not pointers values
 	this->name = objBeingCopied.getName();
 	this->releaseDate = objBeingCopied.getReleaseDate();
+    this->streamingService = objBeingCopied.streamingService;
 
 	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
 	if (objBeingCopied.director) //check that the pointer for the object being copied has a value
@@ -69,7 +71,7 @@ Media::~Media() { //user defined destuctor to handle deallocation of dynamic mem
 	mediaCount--; //decrement the counter
 	if (director != nullptr)
 	{
-		delete director;	  // Release memory allocated for the artist object
+		delete director;	  // Release memory allocated for the director object
 		director = nullptr; // Set the pointer to null to avoid double deletion
 	}
 }
