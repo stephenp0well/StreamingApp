@@ -23,4 +23,10 @@ private:
     int numSeasons;
 };
 
+    bool operator==(TV_Series& lhs, TV_Series& rhs); 
+    bool operator!=(TV_Series& lhs, TV_Series& rhs); 
+    bool operator<(TV_Series& lhs, TV_Series& rhs); 
+    bool operator>(TV_Series& lhs, TV_Series& rhs); 
+
+
 #endif

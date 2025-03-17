@@ -25,6 +25,9 @@ class Media {
         void setStreaming_Service(Streaming_Service); // setter function
         virtual void display() = 0; // pure virtual function
 
+
+        
+
     private:
         string name;
         string releaseDate;
@@ -33,5 +36,8 @@ class Media {
         Streaming_Service streamingService; // Streaming_Service object for 1:1 relationship
         
     };
+
+        bool operator==(Media& lhs, Media& rhs); 
+        bool operator!=(Media& lhs, Media& rhs); 
 
 #endif

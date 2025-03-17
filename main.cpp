@@ -118,6 +118,33 @@ int main() {
         }
     }
 
+    for (size_t i = 0; i < mediaVec.size(); ++i) {
+        for (size_t j = i + 1; j < mediaVec.size(); ++j) {
+            if (*mediaVec[i] == *mediaVec[j]) {
+                cout << "The " << "#" << i + 1 << " media has the same name and release date as " << "#" << j + 1 << " entered media.\n";
+            }
+        }
+    }
+
+    TV_Series* maxSeasonsTVSeries = nullptr;
+    for (auto media : mediaVec) {
+        TV_Series* tvSeries = dynamic_cast<TV_Series*>(media);
+        if (tvSeries) {
+            if (!maxSeasonsTVSeries || *tvSeries > *maxSeasonsTVSeries) {
+                maxSeasonsTVSeries = tvSeries;
+            }
+        }
+    }
+
+    if (maxSeasonsTVSeries) {
+        cout << "The TV series with the most seasons is:\n";
+        maxSeasonsTVSeries->display();
+    } else {
+        cout << "No TV series found.\n";
+    }
+
+    
+
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
         delete media;

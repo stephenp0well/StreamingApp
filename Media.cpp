@@ -65,14 +65,21 @@ void Media::setReleaseDate(string val) // Setter function
         releaseDate = val;
     }
 }
-/*
-void Media::setDirector(Director dir) // Setter function
-{
-    director = dir;
-}
-*/
 
 void Media::setStreaming_Service(Streaming_Service stream) // Setter function
 {
     streamingService = stream;
 }
+
+
+// Overloaded Comparison Operators 
+
+bool operator==(Media &pli1, Media &pli2)
+{
+	return pli1.getName() == pli2.getName() && pli1.getReleaseDate() == pli2.getReleaseDate();
+}
+
+bool operator!=(Media &pli1, Media &pli2)
+{
+	return pli1.getName() != pli2.getName() || pli1.getReleaseDate() != pli2.getReleaseDate();
+}	

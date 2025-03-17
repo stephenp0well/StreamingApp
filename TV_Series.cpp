@@ -47,3 +47,24 @@ void TV_Series::setNumSeasons(int val) // Setter function
         numSeasons = val;
     }
 }
+
+
+bool operator==(TV_Series &pli1, TV_Series &pli2)
+{
+	return pli1.getNumEpisodes() == pli2.getNumEpisodes() && pli1.getNumSeasons() == pli2.getNumSeasons();
+}
+
+bool operator!=(TV_Series &pli1, TV_Series &pli2)
+{
+	return pli1.getNumEpisodes() != pli2.getNumEpisodes() || pli1.getNumSeasons() != pli2.getNumSeasons();
+}	
+
+bool operator<(TV_Series &pli1, TV_Series &pli2)
+{
+	return pli1.getNumSeasons() < pli2.getNumSeasons();
+}
+
+bool operator>(TV_Series &pli1, TV_Series &pli2)
+{
+	return pli1.getNumSeasons() > pli2.getNumSeasons();
+}

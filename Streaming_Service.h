@@ -19,9 +19,16 @@ public:
     string getAvailableRegion() { return availableRegions; } // Getter function
     void display(); // Display function
 
+    
+
+    
+
 private:
     int price;
     string availableRegions;
 };
+
+    
+    
 
 #endif
