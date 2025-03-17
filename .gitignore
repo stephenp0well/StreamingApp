@@ -53,3 +53,5 @@
 *.dSYM/
 *.vscode
 *.png
+/*.mp4
+/*.zip
