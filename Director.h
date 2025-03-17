@@ -17,8 +17,8 @@ public:
     Director(int val1, int val2); // Constructor with parameters (overloaded constructor)
     ~Director(); // Destructor
 
-    Director(const Director& other); // Copy constructor
-    Director& operator=(const Director& other); // Assignment operator
+    Director(const Director& source); // Copy constructor
+    Director& operator=(const Director& source); // Assignment operator
 
     void setExperienceYears(int val) { experienceYears = val; } // Setter function
     int getExperienceYears() { return experienceYears; } // Getter function

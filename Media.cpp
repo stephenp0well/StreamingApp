@@ -26,7 +26,7 @@ Media::Media(Media &objBeingCopied) // Copy constructor
 	cout << "user-defined copy constructor, object being copied is " << objBeingCopied.getName() << endl;
 	// shallow copy of the variable values that are not pointers values 
 	this->getName() = objBeingCopied.getName();
-	//this->getDuration() = objBeingCopied.getDuration();
+	this->getReleaseDate() = objBeingCopied.getReleaseDate();
 	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
 	if (objBeingCopied.director)
 	{
@@ -55,7 +55,7 @@ Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operato
 	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
 	if (objBeingCopied.director) //check that the pointer for the object being copied has a value
 	{
-		director = new Director(); // allocate new memory to hold the Artist details for the object being updated
+		director = new Director(); // allocate new memory to hold the Director details for the object being updated
 		*director = *objBeingCopied.director;
 	}
 	else {
