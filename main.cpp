@@ -10,6 +10,7 @@ using namespace std;
 int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
+    TV_Series* maxSeasonsTVSeries = nullptr; // Pointer to the TV series with the most seasons
     string choice; // Initializing variable for user input. We are using a string as opposed to an integer to prevent errors if the user enters a character instead of an integer.
 
     while (true) {
@@ -125,8 +126,7 @@ int main() {
             }
         }
     }
-
-    TV_Series* maxSeasonsTVSeries = nullptr;
+    // Using operator to find the TV series with the most seasons
     for (auto media : mediaVec) {
         TV_Series* tvSeries = dynamic_cast<TV_Series*>(media);
         if (tvSeries) {

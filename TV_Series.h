@@ -18,6 +18,9 @@ public:
     int getNumSeasons() { return numSeasons; } //  Getter function
     void display(); // Display function
 
+    friend ostream& operator<<(ostream& os,  TV_Series& tvSeries);
+    friend istream& operator>>(istream& is, TV_Series& tvSeries); // istream operator
+
 private:
     int numEpisodes;
     int numSeasons;
