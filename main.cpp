@@ -11,7 +11,7 @@ int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
     TV_Series* maxSeasonsTVSeries = nullptr; // Pointer to the TV series with the most seasons
-    string choice; // Initializing variable for user input. We are using a string as opposed to an integer to prevent errors if the user enters a character instead of an integer.
+    string choice; // Initializing variable for user input.
 
     while (true) {
         // Display menu options
@@ -21,7 +21,7 @@ int main() {
              << "3. Display All Media\n"
              << "4. Display All Directors\n"
              << "5. Exit\n"; 
-        getline(cin, choice); // storr user input in choice variable
+        getline(cin, choice); // store user input in choice variable
 
         if (choice == "1" || choice == "2") {
             // Collect general media details
@@ -33,7 +33,7 @@ int main() {
             cout << "Enter release date: ";
             getline(cin, releaseDate);
 
-
+            
             cout << "Enter director's years of experience: ";
             cin >> experienceYears;
             cout << "Enter number of awards won: ";
@@ -55,39 +55,24 @@ int main() {
                 directors.push_back(director);
             }
             
-            cout << "Enter streaming service price: ";
-            cin >> price;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
-            cout << "Enter available streaming service: ";
-            getline(cin, availableRegions);
-
-            // Create Streaming_Service object
-            Streaming_Service service(price, availableRegions);
+            Streaming_Service service;
+            cin >> service; // Using overloaded istream operator
 
             // Movie-specific details
             if (choice == "1") {
-                double boxOffice, rating;
-
-                cout << "Enter box office value: ";
-                cin >> boxOffice;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
-                cout << "Enter rating: ";
-                cin >> rating;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
-
-                mediaVec.push_back(new Movie(name, releaseDate, boxOffice, rating, director, service)); // storing the Movie object in the vector
+                Movie* movie = new Movie(name, releaseDate, 0, 0, director, service); // Initialize with default values
+                cout << "Enter movie details:\n";
+                cin >> *movie; // Use istream operator to input movie-specific details
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                mediaVec.push_back(movie);
             } 
             // TV Series-specific details
             else if (choice == "2") {
-                int episodes, seasons;
-
-                cout << "Enter number of episodes: ";
-                cin >> episodes;
-                cout << "Enter number of seasons: ";
-                cin >> seasons;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Clear the input buffer
-
-                mediaVec.push_back(new TV_Series(name, releaseDate, episodes, seasons, director, service)); // storing the TV_Series object in the vector
+                TV_Series* tvSeries = new TV_Series(name, releaseDate, 0, 0, director, service); // Initialize with default values
+                cout << "Enter TV series details:\n";
+                cin >> *tvSeries; // Use istream operator to input TV series-specific details
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                mediaVec.push_back(tvSeries);
             }
         } 
         else if (choice == "3") {
@@ -107,7 +92,7 @@ int main() {
             } else {
                 cout << "\n*** Displaying All Directors ***\n";
                 for (const auto& dir : directors) {
-                    dir->display();
+                    cout << *dir << endl; // Use ostream operator to display director details
                 }
             }
         } 
@@ -126,6 +111,7 @@ int main() {
             }
         }
     }
+
     // Using operator to find the TV series with the most seasons
     for (auto media : mediaVec) {
         TV_Series* tvSeries = dynamic_cast<TV_Series*>(media);
@@ -138,12 +124,10 @@ int main() {
 
     if (maxSeasonsTVSeries) {
         cout << "The TV series with the most seasons is:\n";
-        maxSeasonsTVSeries->display();
+        cout << *maxSeasonsTVSeries << endl; // Use ostream operator to display TV series details
     } else {
         cout << "No TV series found.\n";
     }
-
-    
 
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
@@ -155,4 +139,3 @@ int main() {
 
     return 0;
 }
-

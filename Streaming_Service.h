@@ -19,7 +19,8 @@ public:
     string getAvailableRegion() { return availableRegions; } // Getter function
     void display(); // Display function
 
-    
+    friend ostream& operator<<(ostream& os,  Streaming_Service& service);
+    friend istream& operator>>(istream& is, Streaming_Service& service);
 
     
 

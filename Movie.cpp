@@ -80,7 +80,6 @@ bool operator>(Movie& pli1, Movie& pli2) // Overloading the > operator
     return pli1.getRating() > pli2.getRating();
 }
 
-
 ostream& operator<<(ostream& os,  Movie& movie) {
     os << "Box Office Value: $" << movie.getBoxOfficeValue()
        << ", Rating: " << movie.getRating();

@@ -18,8 +18,9 @@ public:
     double getRating() { return rating; } // Getter function
     void display(); // Overriding the display function from Media
 
-    friend ostream& operator<<(ostream& os,  Movie& movie); // ostream operator
+    friend ostream& operator<<(ostream& os,  Movie& movie); //
     friend istream& operator>>(istream& is, Movie& movie); // istream operator
+
 
 private:
     double boxOfficeValue; 

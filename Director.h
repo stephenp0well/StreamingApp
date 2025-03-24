@@ -27,6 +27,9 @@ public:
     void addMedia(Media* media); // Function to add media to the director
     void display(); //  Display function
 
+    friend ostream& operator<<(ostream& os,  Director& director);
+    friend istream& operator>>(istream& is, Director& director);
+
 private:
     int experienceYears;
     int awardsWon;

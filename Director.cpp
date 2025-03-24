@@ -57,3 +57,32 @@ Director& Director::operator=(const Director& other) // Assignment operator
     }
     return *this;
 }
+
+ostream& operator<<(ostream& os, Director& director) {
+    os << "Director Experience: " << director.getExperienceYears() << " years\n"
+       << "Awards Won by Director: " << director.getAwardsWon() << "\n"
+       << "Directed Media:\n";
+
+    if (director.mediaList.empty()) {
+        os << " - No media associated.\n";
+    } else {
+        for (const auto& media : director.mediaList) {
+            os << " - " << media->getName() << " (" << media->getReleaseDate() << ")\n";
+        }
+    }
+    return os;
+}
+
+istream& operator>>(istream& is, Director& director) {
+    int experienceYears, awardsWon;
+
+    cout << "Enter years of experience: ";
+    is >> experienceYears;
+    cout << "Enter number of awards won: ";
+    is >> awardsWon;
+
+    director.setExperienceYears(experienceYears);
+    director.awardsWon = awardsWon;
+
+    return is;
+}

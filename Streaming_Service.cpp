@@ -23,5 +23,20 @@ void Streaming_Service::display() // Display function
     cout << "Streaming on: " << availableRegions << " | Price: $" << price << endl;
 }
 
+ostream& operator<<(ostream& os, Streaming_Service& service) {
+    os << "Price: $" << service.getPrice()
+       << ", Streaming on: " << service.getAvailableRegion();
+    return os;
+}
+istream& operator>>(istream& is, Streaming_Service& service) {
+    int price; 
+    string availableRegions;
+    cout << "Enter streaming service price: ";
+    is >> service.price;
+    is.ignore(); // Ignore leftover newline
+    cout << "Enter available streaming service: ";
+    getline(is, service.availableRegions);
+    return is;
+}
 
 

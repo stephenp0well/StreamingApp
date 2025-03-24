@@ -69,31 +69,20 @@ bool operator>(TV_Series &pli1, TV_Series &pli2)
 	return pli1.getNumSeasons() > pli2.getNumSeasons();
 }
 
-
 ostream& operator<<(ostream& os,  TV_Series& tvSeries) {
-    os << "TV Series: " << tvSeries.getName()
-       << ", Release Date: " << tvSeries.getReleaseDate()
-       << ", Episodes: " << tvSeries.getNumEpisodes()
+    os << "Episodes: " << tvSeries.getNumEpisodes()
        << ", Seasons: " << tvSeries.getNumSeasons();
     return os;
 }
 
 istream& operator>>(istream& is, TV_Series& tvSeries) {
-    string name, releaseDate;
     int episodes, seasons;
 
-    cout << "Enter TV series name: ";
-    is >> ws; // Handle leading whitespace
-    getline(is, name);
-    cout << "Enter release date: ";
-    getline(is, releaseDate);
     cout << "Enter number of episodes: ";
     is >> episodes;
     cout << "Enter number of seasons: ";
     is >> seasons;
 
-    tvSeries.setName(name);
-    tvSeries.setReleaseDate(releaseDate);
     tvSeries.setNumEpisodes(episodes);
     tvSeries.setNumSeasons(seasons);
 
