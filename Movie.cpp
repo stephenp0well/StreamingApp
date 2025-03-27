@@ -55,7 +55,7 @@ void Movie::setRating(double val) // Setter function
         rating = val;
     }
 }
-
+// Overloaded comparison operators
 bool operator==(Movie& pli1, Movie& pli2) // Overloading the == operator
 {
     // Compare the box office value and rating of the two movies
@@ -79,13 +79,13 @@ bool operator>(Movie& pli1, Movie& pli2) // Overloading the > operator
     // Compare the rating of the two movies
     return pli1.getRating() > pli2.getRating();
 }
-
+// Overloaded ostream operator
 ostream& operator<<(ostream& os,  Movie& movie) {
     os << "Box Office Value: $" << movie.getBoxOfficeValue()
        << ", Rating: " << movie.getRating();
     return os;
 }
-
+// Overloaded istream operator
 istream& operator>>(istream& is, Movie& movie) {
     double boxOfficeValue, rating;
 

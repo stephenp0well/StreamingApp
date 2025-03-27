@@ -17,7 +17,7 @@ public:
     void setNumSeasons(int val); // Setter function
     int getNumSeasons() { return numSeasons; } //  Getter function
     void display(); // Display function
-
+    // Overloaded ostream & istream operators
     friend ostream& operator<<(ostream& os,  TV_Series& tvSeries);
     friend istream& operator>>(istream& is, TV_Series& tvSeries); // istream operator
 
@@ -25,7 +25,7 @@ private:
     int numEpisodes;
     int numSeasons;
 };
-
+    // Comparison operators 
     bool operator==(TV_Series& lhs, TV_Series& rhs); 
     bool operator!=(TV_Series& lhs, TV_Series& rhs); 
     bool operator<(TV_Series& lhs, TV_Series& rhs); 

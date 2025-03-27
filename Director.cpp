@@ -57,7 +57,7 @@ Director& Director::operator=(const Director& other) // Assignment operator
     }
     return *this;
 }
-
+// Ostream operator 
 ostream& operator<<(ostream& os, Director& director) {
     os << "Director Experience: " << director.getExperienceYears() << " years\n"
        << "Awards Won by Director: " << director.getAwardsWon() << "\n"
@@ -72,17 +72,16 @@ ostream& operator<<(ostream& os, Director& director) {
     }
     return os;
 }
-
+// Istream operator 
 istream& operator>>(istream& is, Director& director) {
-    int experienceYears, awardsWon;
-
-    cout << "Enter years of experience: ";
-    is >> experienceYears;
-    cout << "Enter number of awards won: ";
-    is >> awardsWon;
-
-    director.setExperienceYears(experienceYears);
-    director.awardsWon = awardsWon;
+    cout << "Enter director years of experience: ";
+    is >> director.experienceYears;  // Assign directly to the member variable
+    is.ignore();
+    cout << "Enter number of awards won by director: ";
+    is >> director.awardsWon;  // Assign directly to the member variable
+    is.ignore();
 
     return is;
 }
+
+

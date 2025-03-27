@@ -18,7 +18,7 @@ public:
     double getRating() { return rating; } // Getter function
     void display(); // Overriding the display function from Media
 
-    friend ostream& operator<<(ostream& os,  Movie& movie); //
+    friend ostream& operator<<(ostream& os,  Movie& movie); // ostream opeator 
     friend istream& operator>>(istream& is, Movie& movie); // istream operator
 
 
@@ -27,7 +27,7 @@ private:
     double rating;
     
 };
-
+    
     bool operator==(Movie&, Movie&); // Overloading the == operator
     bool operator!=(Movie&, Movie&); // Overloading the != operator
     bool operator<(Movie&, Movie&); // Overloading the < operator

@@ -6,6 +6,7 @@ using namespace std;
 #include <string>
 #include <iostream>
 
+
 class Streaming_Service
 {
 public:
@@ -18,9 +19,11 @@ public:
     void setAvailableRegion(string val) { availableRegions = val; } // Setter function
     string getAvailableRegion() { return availableRegions; } // Getter function
     void display(); // Display function
-
+    // Overloaded operators
     friend ostream& operator<<(ostream& os,  Streaming_Service& service);
     friend istream& operator>>(istream& is, Streaming_Service& service);
+
+   
 
     
 
@@ -29,7 +32,10 @@ private:
     string availableRegions;
 };
 
-    
+    bool operator==(Streaming_Service& lhs, Streaming_Service& rhs); 
+    bool operator!=(Streaming_Service& lhs, Streaming_Service& rhs); 
+    bool operator<(Streaming_Service& lhs, Streaming_Service& rhs); 
+    bool operator>(Streaming_Service& lhs, Streaming_Service& rhs);   
     
 
 #endif

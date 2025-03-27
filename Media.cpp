@@ -133,23 +133,3 @@ bool operator!=(Media &pli1, Media &pli2)
 	return pli1.getName() != pli2.getName() || pli1.getReleaseDate() != pli2.getReleaseDate();
 }	
 
-ostream& operator<<(ostream& os, Media& media) {
-    os << "Name: " << media.getName() << endl;
-    os << "Release Date: " << media.getReleaseDate() << endl;
-
-    return os;
-}
-
-istream& operator>>(istream& is, Media& media) {
-    string name, releaseDate;
-
-    cout << "Enter media name: ";
-    is >> name;
-    cout << "Enter release date: ";
-    is >> releaseDate;
-
-    media.setName(name);
-    media.setReleaseDate(releaseDate);
-
-    return is;
-}

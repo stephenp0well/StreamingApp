@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+
 int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
@@ -28,16 +30,18 @@ int main() {
             string name, releaseDate, availableRegions;
             int experienceYears, awardsWon, price;
 
+            //Get Media Information 
             cout << "Enter media name: ";
             getline(cin, name);
             cout << "Enter release date: ";
             getline(cin, releaseDate);
-
             
+            // Get Director Information 
             cout << "Enter director's years of experience: ";
             cin >> experienceYears;
             cout << "Enter number of awards won: ";
             cin >> awardsWon;
+            
 
             // Check if a director with the same experience and awards exists
             Director* director = nullptr;
@@ -49,13 +53,13 @@ int main() {
             }
 
             // If no matching director is found, create a new one
-
             if (!director) {
                 director = new Director(experienceYears, awardsWon);
                 directors.push_back(director);
             }
             
-            Streaming_Service service;
+            Streaming_Service service; // Object to store streaming service details
+            cout << "Enter streaming service details: \n";
             cin >> service; // Using overloaded istream operator
 
             // Movie-specific details
@@ -86,7 +90,7 @@ int main() {
                 }
             }
         } 
-        else if (choice == "4") {
+        else if (choice == "4") { // Display all directors
             if (directors.empty()) {
                 cout << "No directors to display.\n"; 
             } else {
@@ -103,7 +107,7 @@ int main() {
             cout << "Invalid choice. Try again.\n"; // error message if the user enters an invalid choice
         }
     }
-
+    // Scenario where two media objects have the same name and release date
     for (size_t i = 0; i < mediaVec.size(); ++i) {
         for (size_t j = i + 1; j < mediaVec.size(); ++j) {
             if (*mediaVec[i] == *mediaVec[j]) {
@@ -121,13 +125,37 @@ int main() {
             }
         }
     }
-
+    // Display the TV series with the most seasons
     if (maxSeasonsTVSeries) {
         cout << "The TV series with the most seasons is:\n";
         cout << *maxSeasonsTVSeries << endl; // Use ostream operator to display TV series details
     } else {
         cout << "No TV series found.\n";
     }
+
+        // Find and display the most expensive streaming service
+        Streaming_Service* mostExpensiveService = nullptr;
+        for (auto media : mediaVec) {
+            Streaming_Service currentService = media->getStreamingService();
+            if (!mostExpensiveService || currentService > *mostExpensiveService) {
+                if (mostExpensiveService) {
+                    delete mostExpensiveService;
+                }
+                mostExpensiveService = new Streaming_Service(currentService);
+            }
+        }
+    
+        if (mostExpensiveService) {
+            cout << "\nThe most expensive streaming service is:\n";
+            cout << *mostExpensiveService << endl;
+            delete mostExpensiveService;
+        } else {
+            cout << "\nNo streaming services found.\n";
+        }
+    
+
+
+
 
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
@@ -136,6 +164,9 @@ int main() {
     for (auto director : directors) {
         delete director;
     }
+
+
+    
 
     return 0;
 }

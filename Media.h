@@ -27,12 +27,8 @@ class Media {
         void setStreaming_Service(Streaming_Service); // setter function
         virtual void display() = 0; // pure virtual function
 
+        Streaming_Service& getStreamingService() { return streamingService; }
 
-        friend ostream& operator<<(ostream& os,  Media& media);
-        friend istream& operator>>(istream& is, Media& media); // istream operator
-
-        Director* getDirector() const { return director; }
-        Streaming_Service getStreamingService() const { return streamingService; }
 
 
         
