@@ -18,7 +18,7 @@ public:
     int getNumSeasons() { return numSeasons; } //  Getter function
     void display(); // Display function
     // Overloaded ostream & istream operators
-    friend ostream& operator<<(ostream& os,  TV_Series& tvSeries);
+    friend ostream& operator<<(ostream& os,  TV_Series& tvSeries); // ostream operator
     friend istream& operator>>(istream& is, TV_Series& tvSeries); // istream operator
 
 private:

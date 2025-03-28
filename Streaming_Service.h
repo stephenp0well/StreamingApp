@@ -20,8 +20,8 @@ public:
     string getAvailableRegion() { return availableRegions; } // Getter function
     void display(); // Display function
     // Overloaded operators
-    friend ostream& operator<<(ostream& os,  Streaming_Service& service);
-    friend istream& operator>>(istream& is, Streaming_Service& service);
+    friend ostream& operator<<(ostream& os,  Streaming_Service& service); //ostream operator 
+    friend istream& operator>>(istream& is, Streaming_Service& service); //istream operator 
 
    
 

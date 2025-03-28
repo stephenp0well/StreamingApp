@@ -11,11 +11,12 @@ int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
     TV_Series* maxSeasonsTVSeries = nullptr; // Pointer to the TV series with the most seasons
+    Streaming_Service* mostExpensiveService = nullptr; // Pointer to the most expensive streaming service
     string choice; // Initializing variable for user input.
 
     while (true) {
         // Display menu options
-        cout << "\nChoose an option:\n"
+        cout << "\nChoose an option:\n  "
              << "1. Add a Movie\n"
              << "2. Add a TV Series\n"
              << "3. Display All Media\n"
@@ -40,7 +41,6 @@ int main() {
             cout << "Enter number of awards won: ";
             cin >> awardsWon;
             
-
             // Check if a director with the same experience and awards exists
             Director* director = nullptr;
             for (auto d : directors) {
@@ -105,9 +105,12 @@ int main() {
             cout << "Invalid choice. Try again.\n"; // error message if the user enters an invalid choice
         }
     }
+
     // Scenario where two media objects have the same name and release date
     for (size_t i = 0; i < mediaVec.size(); ++i) {
+        // Inner loop: compare with all subsequent media objects
         for (size_t j = i + 1; j < mediaVec.size(); ++j) {
+            // Use overloaded == operator to compare objects 
             if (*mediaVec[i] == *mediaVec[j]) {
                 cout << "The " << "#" << i + 1 << " media has the same name and release date as " << "#" << j + 1 << " entered media.\n";
             }
@@ -116,10 +119,10 @@ int main() {
 
     // Using operator to find the TV series with the most seasons
     for (auto media : mediaVec) {
-        TV_Series* tvSeries = dynamic_cast<TV_Series*>(media);
+        TV_Series* tvSeries = dynamic_cast<TV_Series*>(media); // Going through the vector of media objects to find the TV series objects
         if (tvSeries) {
-            if (!maxSeasonsTVSeries || *tvSeries > *maxSeasonsTVSeries) {
-                maxSeasonsTVSeries = tvSeries;
+            if (!maxSeasonsTVSeries || *tvSeries > *maxSeasonsTVSeries) { // Using overloaded > operator to compare TV series objects
+                maxSeasonsTVSeries = tvSeries; // Updates our pointer to this TV series object
             }
         }
     }
@@ -133,21 +136,20 @@ int main() {
     }
 
     // Find and display the most expensive streaming service
-    Streaming_Service* mostExpensiveService = nullptr;
     for (auto media : mediaVec) {
-        Streaming_Service currentService = media->getStreamingService();
-        if (!mostExpensiveService || currentService > *mostExpensiveService) {
-            if (mostExpensiveService) {
+        Streaming_Service currentService = media->getStreamingService(); // getting the streaming service object from the media object
+        if (!mostExpensiveService || currentService > *mostExpensiveService) { // Using overloaded > operator to compare streaming service objects
+            if (mostExpensiveService) { // Cleans up the previous most expensive if it exists 
                 delete mostExpensiveService;
             }
-            mostExpensiveService = new Streaming_Service(currentService);
+            mostExpensiveService = new Streaming_Service(currentService); // Make a copy of the current service 
             }
         }
-    
+    // Display results 
     if (mostExpensiveService) {
         cout << "\nThe most expensive streaming service is:\n";
-        cout << *mostExpensiveService << endl;
-        delete mostExpensiveService;
+        cout << *mostExpensiveService << endl; // use ostream operator to display streaming service details
+        delete mostExpensiveService; // Clean up the dynamically allocated object
     } else {
         cout << "\nNo streaming services found.\n";
         }
