@@ -7,8 +7,6 @@
 
 using namespace std;
 
-
-
 int main() {
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
@@ -125,6 +123,7 @@ int main() {
             }
         }
     }
+
     // Display the TV series with the most seasons
     if (maxSeasonsTVSeries) {
         cout << "The TV series with the most seasons is:\n";
@@ -133,29 +132,25 @@ int main() {
         cout << "No TV series found.\n";
     }
 
-        // Find and display the most expensive streaming service
-        Streaming_Service* mostExpensiveService = nullptr;
-        for (auto media : mediaVec) {
-            Streaming_Service currentService = media->getStreamingService();
-            if (!mostExpensiveService || currentService > *mostExpensiveService) {
-                if (mostExpensiveService) {
-                    delete mostExpensiveService;
-                }
-                mostExpensiveService = new Streaming_Service(currentService);
+    // Find and display the most expensive streaming service
+    Streaming_Service* mostExpensiveService = nullptr;
+    for (auto media : mediaVec) {
+        Streaming_Service currentService = media->getStreamingService();
+        if (!mostExpensiveService || currentService > *mostExpensiveService) {
+            if (mostExpensiveService) {
+                delete mostExpensiveService;
+            }
+            mostExpensiveService = new Streaming_Service(currentService);
             }
         }
     
-        if (mostExpensiveService) {
-            cout << "\nThe most expensive streaming service is:\n";
-            cout << *mostExpensiveService << endl;
-            delete mostExpensiveService;
-        } else {
-            cout << "\nNo streaming services found.\n";
+    if (mostExpensiveService) {
+        cout << "\nThe most expensive streaming service is:\n";
+        cout << *mostExpensiveService << endl;
+        delete mostExpensiveService;
+    } else {
+        cout << "\nNo streaming services found.\n";
         }
-    
-
-
-
 
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
@@ -164,9 +159,6 @@ int main() {
     for (auto director : directors) {
         delete director;
     }
-
-
     
-
     return 0;
 }
