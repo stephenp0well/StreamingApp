@@ -29,15 +29,15 @@ Media::Media(Media &objBeingCopied) // Copy constructor
 	this->getReleaseDate() = objBeingCopied.getReleaseDate();
     this->streamingService = objBeingCopied.streamingService;
 	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
-	if (objBeingCopied.director)
+	if (objBeingCopied.director) // check that the pointer for the object being copied has a value    
 	{
 		director = new Director(); // allocate dynamic memory from the heap for our copy
-		*director = *(objBeingCopied.director);
+		*director = *(objBeingCopied.director); // copy the values the pointer points to and not the pointer value itself
 	}
 	else {
-		director = 0;
+		director = 0; // set the pointer to null to avoid dangling pointer
 	}
-	mediaCount++;
+	mediaCount++; // increment the media count
 }
 
 Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operator for deep coyping of pointer fields
@@ -58,18 +58,18 @@ Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operato
 	if (objBeingCopied.director) //check that the pointer for the object being copied has a value
 	{
 		director = new Director(); // allocate new memory to hold the Director details for the object being updated
-		*director = *objBeingCopied.director;
+		*director = *objBeingCopied.director; // copy the values the pointer points to and not the pointer value itself
 	}
 	else {
-		director = 0;
+		director = 0; // set the pointer to null to avoid dangling pointer
 	}
-    return *this;
+    return *this; // return the updated object
 }
 
 Media::~Media() { //user defined destuctor to handle deallocation of dynamic memory
 	cout<<"calling destructor for "<< this->getName()<<endl;
 	mediaCount--; //decrement the counter
-	if (director != nullptr)
+	if (director != nullptr) // Check if the director pointer is not null
 	{
 		delete director;	  // Release memory allocated for the director object
 		director = nullptr; // Set the pointer to null to avoid double deletion
