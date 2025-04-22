@@ -61,8 +61,9 @@ int main() {
              << "4. Display All Directors\n"
              << "5. Sort and Display All Movies by Rating (Default STL Sort)\n"
              << "6. Sort and Display All Media by Name (Explicitly Specified)\n"
-             << "7. Clear All Saved Data\n"
-             << "8. Exit\n";
+             << "7. Find and Display a Media by Name\n"
+             << "8. Clear All Saved Data\n"
+             << "9. Exit\n";
         getline(cin, choice); // store user input in choice variable
 
         if (choice == "1" || choice == "2") {
@@ -178,6 +179,24 @@ int main() {
             }
         }
         else if (choice == "7") {
+            string searchName;
+            cout << "Enter the name of the media to search for: ";
+            getline(cin, searchName);
+        
+            // Use find_if with lambda to search by name
+            auto it = find_if(mediaVec.begin(), mediaVec.end(), [&](Media* media) {
+                return media->getName() == searchName;
+            });
+        
+            if (it != mediaVec.end()) {
+                cout << "\nMedia found:\n";
+                (*it)->display();
+            } else {
+                cout << "No media found with the name \"" << searchName << "\".\n";
+            }
+        }
+        
+        else if (choice == "8") {
             ofstream clearFile("data.txt", ios::trunc); // truncate the file
             if (clearFile.is_open()) {
                 cout << "[*] All saved media has been cleared.\n";
@@ -186,7 +205,7 @@ int main() {
                 cout << "[!] Failed to open data.txt for clearing.\n";
             }
         }          
-        else if (choice == "8") {
+        else if (choice == "9") {
             ofstream outFile("data.txt");
             if (!outFile.is_open()) {
                 cout << "[!] Failed to open file for writing.\n";
@@ -253,6 +272,7 @@ int main() {
         cout << "\nNo streaming services found.\n";
         }
 
+    /*
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
         delete media;
@@ -260,6 +280,6 @@ int main() {
     for (auto director : directors) {
         delete director;
     }
-    
+*/
     return 0;
 }
