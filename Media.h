@@ -29,11 +29,14 @@ class Media {
 
         Streaming_Service& getStreamingService() { return streamingService; }
 
+        // Virtual functions for saving/loading media objects to/from a file
+        virtual void saveToFile(ofstream& out) = 0;
+        virtual void loadFromFile(ifstream& in) = 0;
+
+        Director* getDirector() { return director; }
 
 
-        
-
-    private:
+    protected:
         string name;
         string releaseDate;
 

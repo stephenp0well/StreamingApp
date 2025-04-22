@@ -1,4 +1,5 @@
 #include "TV_Series.h"
+#include <fstream>
 
 TV_Series::TV_Series() // Default constructor
 {
@@ -87,4 +88,37 @@ istream& operator>>(istream& is, TV_Series& tvSeries) {
     tvSeries.setNumSeasons(seasons);
 
     return is;
+}
+
+void TV_Series::saveToFile(ofstream& out) {
+    out << "TVSeries\n";
+    out << getName() << '\n';
+    out << getReleaseDate() << '\n';
+    out << numEpisodes << '\n';
+    out << numSeasons << '\n';
+    out << director->getExperienceYears() << '\n';
+    out << director->getAwardsWon() << '\n';
+    out << streamingService.getPrice() << '\n';
+    out << streamingService.getAvailableRegion() << '\n';
+}
+
+void TV_Series::loadFromFile(ifstream& in) {
+    string name, releaseDate, region;
+    int eps, seasons, exp, awards, price;
+
+    getline(in, name);
+    getline(in, releaseDate);
+    in >> eps >> seasons >> exp >> awards >> price;
+    in.ignore(); // Ignore newline after price
+    getline(in, region);
+
+    setName(name);
+    setReleaseDate(releaseDate);
+    setNumEpisodes(eps);
+    setNumSeasons(seasons);
+
+    director = new Director(exp, awards);
+    director->addMedia(this); // ✅ Fix: Track this media
+    streamingService = Streaming_Service(price, region);
+
 }

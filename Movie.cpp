@@ -1,4 +1,5 @@
 #include "Movie.h"
+#include "fstream"
 
 Movie::Movie() // Default constructor
 {
@@ -99,4 +100,40 @@ istream& operator>>(istream& is, Movie& movie) {
     movie.setRating(rating);
 
     return is;
+}
+
+// Save Movie object to a file
+void Movie::saveToFile(ofstream& out) {
+    out << "Movie\n";
+    out << getName() << '\n';
+    out << getReleaseDate() << '\n';
+    out << boxOfficeValue << '\n';
+    out << rating << '\n';
+    out << director->getExperienceYears() << '\n';
+    out << director->getAwardsWon() << '\n';
+    out << streamingService.getPrice() << '\n';
+    out << streamingService.getAvailableRegion() << '\n';
+}
+
+// Load Movie object from a file
+void Movie::loadFromFile(ifstream& in) {
+    string name, releaseDate, region;
+    double boxVal, rate;
+    int exp, awards, price;
+
+    getline(in, name);
+    getline(in, releaseDate);
+    in >> boxVal >> rate >> exp >> awards >> price;
+    in.ignore(); // skip newline after price
+    getline(in, region);
+
+    setName(name);
+    setReleaseDate(releaseDate);
+    setBoxOfficeValue(boxVal);
+    setRating(rate);
+
+    director = new Director(exp, awards);
+    director->addMedia(this); // ✅ Fix: Track this media
+    streamingService = Streaming_Service(price, region);
+
 }

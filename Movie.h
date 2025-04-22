@@ -21,6 +21,10 @@ public:
     friend ostream& operator<<(ostream& os,  Movie& movie); // ostream opeator 
     friend istream& operator>>(istream& is, Movie& movie); // istream operator
 
+    // Overriding pure virtual functions from Media for file I/O
+    void saveToFile(ofstream& out) override;
+    void loadFromFile(ifstream& in) override;
+
 
 private:
     double boxOfficeValue; 

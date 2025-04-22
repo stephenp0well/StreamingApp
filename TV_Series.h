@@ -21,6 +21,11 @@ public:
     friend ostream& operator<<(ostream& os,  TV_Series& tvSeries); // ostream operator
     friend istream& operator>>(istream& is, TV_Series& tvSeries); // istream operator
 
+    // File I/O implementations
+    void saveToFile(ofstream& out) override;
+    void loadFromFile(ifstream& in) override;
+
+
 private:
     int numEpisodes;
     int numSeasons;
