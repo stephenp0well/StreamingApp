@@ -59,7 +59,10 @@ int main() {
              << "2. Add a TV Series\n"
              << "3. Display All Media\n"
              << "4. Display All Directors\n"
-             << "5. Exit\n"; 
+             << "5. Sort and Display All Movies by Rating (Default STL Sort)\n"
+             << "6. Sort and Display All Media by Name (Explicitly Specified)\n"
+             << "7. Clear All Saved Data\n"
+             << "8. Exit\n";
         getline(cin, choice); // store user input in choice variable
 
         if (choice == "1" || choice == "2") {
@@ -137,6 +140,53 @@ int main() {
             }
         } 
         else if (choice == "5") {
+            vector<Movie*> movieList;
+        
+            // Extract Movie objects from mediaVec
+            for (auto media : mediaVec) {
+                Movie* movie = dynamic_cast<Movie*>(media);
+                if (movie) {
+                    movieList.push_back(movie);
+                }
+            }
+        
+            if (movieList.empty()) {
+                cout << "No movies to sort.\n";
+            } else {
+                // Sort using default STL sort (uses Movie::operator<)
+                sort(movieList.begin(), movieList.end());
+        
+                cout << "\n*** Movies Sorted by Rating (Lowest to Highest) ***\n";
+                for (auto movie : movieList) {
+                    movie->display();
+                }
+            }
+        }
+        else if (choice == "6") {
+            if (mediaVec.empty()) {
+                cout << "No media to sort.\n";
+            } else {
+                // Custom comparator: compare Media* by name
+                sort(mediaVec.begin(), mediaVec.end(), [](Media* a, Media* b) {
+                    return a->getName() < b->getName(); // alphabetical order
+                });
+        
+                cout << "\n*** Media Sorted by Name (A to Z) ***\n";
+                for (auto media : mediaVec) {
+                    media->display();
+                }
+            }
+        }
+        else if (choice == "7") {
+            ofstream clearFile("data.txt", ios::trunc); // truncate the file
+            if (clearFile.is_open()) {
+                cout << "[*] All saved media has been cleared.\n";
+                clearFile.close();
+            } else {
+                cout << "[!] Failed to open data.txt for clearing.\n";
+            }
+        }          
+        else if (choice == "8") {
             ofstream outFile("data.txt");
             if (!outFile.is_open()) {
                 cout << "[!] Failed to open file for writing.\n";
@@ -147,16 +197,69 @@ int main() {
                 }
                 outFile.close();
             }
-
-            
-            cout << "[*] Exiting program now...\n";
             break;
-        }
+        }      
         else {
             cout << "Invalid choice. Try again.\n";
         }
     }
+    
 
+    // Scenario where two media objects have the same name and release date
+    for (size_t i = 0; i < mediaVec.size(); ++i) {
+        // Inner loop: compare with all subsequent media objects
+        for (size_t j = i + 1; j < mediaVec.size(); ++j) {
+            // Use overloaded == operator to compare objects 
+            if (*mediaVec[i] == *mediaVec[j]) {
+                cout << "The " << "#" << i + 1 << " media has the same name and release date as " << "#" << j + 1 << " entered media.\n";
+            }
+        }
+    }
+
+    // Using operator to find the TV series with the most seasons
+    for (auto media : mediaVec) {
+        TV_Series* tvSeries = dynamic_cast<TV_Series*>(media); // Going through the vector of media objects to find the TV series objects
+        if (tvSeries) {
+            if (!maxSeasonsTVSeries || *tvSeries > *maxSeasonsTVSeries) { // Using overloaded > operator to compare TV series objects
+                maxSeasonsTVSeries = tvSeries; // Updates our pointer to this TV series object
+            }
+        }
+    }
+
+    // Display the TV series with the most seasons
+    if (maxSeasonsTVSeries) {
+        cout << "The TV series with the most seasons is:\n";
+        cout << *maxSeasonsTVSeries << endl; // Use ostream operator to display TV series details
+    } else {
+        cout << "No TV series found.\n";
+    }
+
+    // Find and display the most expensive streaming service
+    for (auto media : mediaVec) {
+        Streaming_Service currentService = media->getStreamingService(); // getting the streaming service object from the media object
+        if (!mostExpensiveService || currentService > *mostExpensiveService) { // Using overloaded > operator to compare streaming service objects
+            if (mostExpensiveService) { // Cleans up the previous most expensive if it exists 
+                delete mostExpensiveService;
+            }
+            mostExpensiveService = new Streaming_Service(currentService); // Make a copy of the current service 
+            }
+        }
+    // Display results 
+    if (mostExpensiveService) {
+        cout << "\nThe most expensive streaming service is:\n";
+        cout << *mostExpensiveService << endl; // use ostream operator to display streaming service details
+        delete mostExpensiveService; // Clean up the dynamically allocated object
+    } else {
+        cout << "\nNo streaming services found.\n";
+        }
+
+    // Cleanup dynamically allocated objects
+    for (auto media : mediaVec) {
+        delete media;
+    }
+    for (auto director : directors) {
+        delete director;
+    }
     
     return 0;
 }
