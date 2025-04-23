@@ -9,13 +9,15 @@
 using namespace std;
 
 int main() {
+    try { // main function wrapped in try-catch block (handling built in exception types)
+    
     vector<Media*> mediaVec;  // Vector to store media objects
     vector<Director*> directors; // Vector to store directors
     TV_Series* maxSeasonsTVSeries = nullptr; // Pointer to the TV series with the most seasons
     Streaming_Service* mostExpensiveService = nullptr; // Pointer to the most expensive streaming service
     string choice; // Initializing variable for user input.
 
-    // Load data from file
+    // Read data from file
     ifstream inFile("data.txt");
     if (!inFile.is_open()) {
         cout << "[!] No saved media found.\n";
@@ -78,10 +80,24 @@ int main() {
             getline(cin, releaseDate);
             
             // Get Director Information 
-            cout << "Enter director's years of experience: ";
-            cin >> experienceYears;
-            cout << "Enter number of awards won: ";
-            cin >> awardsWon;
+            try {
+                string expStr, awardStr;
+                cout << "Enter director's years of experience: ";
+                getline(cin, expStr);
+                experienceYears = stoi(expStr); // Convert string to integer using stoi() — may throw if invalid
+
+                cout << "Enter number of awards won: ";
+                getline(cin, awardStr);
+                awardsWon = stoi(awardStr); // Convert string to integer — again, may throw if not a number
+            } catch (const invalid_argument& e) {
+                // This block runs if stoi() fails due to non-numeric input
+                cerr << "[!] Invalid input. Please enter numbers only.\n";
+                continue;
+            } catch (const out_of_range& e) {
+                // This block runs if the number is too large for an int
+                cerr << "[!] Input number is out of range.\n";
+                continue;
+            }
             
             // Check if a director with the same experience and awards exists
             Director* director = nullptr;
@@ -140,6 +156,7 @@ int main() {
                 }
             }
         } 
+        // Use of STL sort algorithm using default mechanism
         else if (choice == "5") {
             vector<Movie*> movieList;
         
@@ -163,6 +180,7 @@ int main() {
                 }
             }
         }
+        //Use of STL sort algorithm using sort criterion explicitly specified
         else if (choice == "6") {
             if (mediaVec.empty()) {
                 cout << "No media to sort.\n";
@@ -178,6 +196,7 @@ int main() {
                 }
             }
         }
+        // Find algorithm 
         else if (choice == "7") {
             string searchName;
             cout << "Enter the name of the media to search for: ";
@@ -195,7 +214,7 @@ int main() {
                 cout << "No media found with the name \"" << searchName << "\".\n";
             }
         }
-        
+        // Clear file contents
         else if (choice == "8") {
             ofstream clearFile("data.txt", ios::trunc); // truncate the file
             if (clearFile.is_open()) {
@@ -204,7 +223,8 @@ int main() {
             } else {
                 cout << "[!] Failed to open data.txt for clearing.\n";
             }
-        }          
+        }   
+        // Exit program and save data to file       
         else if (choice == "9") {
             ofstream outFile("data.txt");
             if (!outFile.is_open()) {
@@ -272,7 +292,6 @@ int main() {
         cout << "\nNo streaming services found.\n";
         }
 
-    /*
     // Cleanup dynamically allocated objects
     for (auto media : mediaVec) {
         delete media;
@@ -280,6 +299,11 @@ int main() {
     for (auto director : directors) {
         delete director;
     }
-*/
+    cout << "[✓] Program exited successfully." << endl;
     return 0;
-}
+    }
+    catch (const std::exception& e) {
+        cerr << "[!] A runtime error occurred: " << e.what() << endl;
+        return 1;
+    }
+} 
