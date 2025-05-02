@@ -1,6 +1,9 @@
 #include "Media.h"
 #include "Movie.h"
 #include "TV_Series.h"
+#include "exceptions/StreamingException.h"  // Base exception class for streaming app exceptions
+#include "exceptions/MediaNotFoundException.h"  // Exception for when media cannot be found
+#include "exceptions/InvalidMediaException.h"  // Exception for invalid media types
 #include <vector>
 #include <algorithm>
 #include <limits>
@@ -30,10 +33,21 @@ int main() {
                 media = new Movie();
             } else if (type == "TVSeries") {
                 media = new TV_Series();
+            } else {
+                // Throw exception if we encounter an unknown media type in the data file
+                throw InvalidMediaException(type);
             }
 
             if (media) {
+                try {
                 media->loadFromFile(inFile);
+            } catch (const MediaNotFoundException& e) {
+                // Handle case where media data is missing or corrupted in file
+                cerr << "[!] " << e.what() << "\n";
+                delete media;  // Clean up memory
+                media = nullptr;
+                continue;  // Skip this media item and continue loading others
+            }
                 mediaVec.push_back(media);
 
                 bool directorExists = false;
