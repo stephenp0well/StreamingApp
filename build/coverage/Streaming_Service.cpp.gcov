@@ -1,0 +1,67 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Streaming_Service.cpp
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Streaming_Service.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Streaming_Service.gcda
+        -:    0:Runs:9
+        -:    1:#include "Streaming_Service.h"
+        -:    2:
+    #####:    3:Streaming_Service::Streaming_Service() // Default constructor
+        -:    4:{
+    #####:    5:    int price = 0;
+    #####:    6:    string availableRegions = "N/A"; 
+    #####:    7:}
+        -:    8:
+      153:    9:Streaming_Service::Streaming_Service(int val1, string val2) // Constructor with parameters
+        -:   10:{
+      153:   11:    price = val1;
+      153:   12:    availableRegions = val2;
+      153:   13:}
+        -:   14:
+      279:   15:Streaming_Service::~Streaming_Service() // Destructor
+        -:   16:{
+        -:   17:
+      279:   18:}
+        -:   19:
+    #####:   20:void Streaming_Service::display() // Display function
+        -:   21:{
+        -:   22:    // Displaying streaming service details
+    #####:   23:    cout << "Streaming on: " << availableRegions << " | Price: $" << price << endl;
+    #####:   24:}
+        -:   25:// Overloaded ostream operator
+    #####:   26:ostream& operator<<(ostream& os, Streaming_Service& service) {
+    #####:   27:    os << "Price: $" << service.getPrice()
+    #####:   28:       << ", Streaming on: " << service.getAvailableRegion();
+    #####:   29:    return os;
+        -:   30:}
+        -:   31:// Overloaded istream operator
+    #####:   32:istream& operator>>(istream& is, Streaming_Service& service) {
+        -:   33:    int price; 
+    #####:   34:    string availableRegions;
+    #####:   35:    cout << "Enter streaming service price: ";
+    #####:   36:    is >> service.price;
+    #####:   37:    is.ignore(); // Ignore leftover newline
+    #####:   38:    cout << "Enter available streaming service: ";
+    #####:   39:    getline(is, service.availableRegions);
+    #####:   40:    return is;
+    #####:   41:}
+        -:   42:
+        -:   43:// Overloaded comparison operators
+    #####:   44:bool operator==(Streaming_Service &pli1, Streaming_Service &pli2)
+        -:   45:{
+    #####:   46:	return pli1.getPrice() == pli2.getPrice() && pli1.getAvailableRegion() == pli2.getAvailableRegion();
+        -:   47:}
+        -:   48:
+    #####:   49:bool operator!=(Streaming_Service &pli1, Streaming_Service &pli2)
+        -:   50:{
+    #####:   51:	return pli1.getPrice() != pli2.getPrice() || pli1.getAvailableRegion() != pli2.getAvailableRegion();
+        -:   52:}	
+        -:   53:
+    #####:   54:bool operator<(Streaming_Service &pli1, Streaming_Service &pli2)
+        -:   55:{
+    #####:   56:	return pli1.getPrice() < pli2.getPrice();
+        -:   57:}
+        -:   58:
+    #####:   59:bool operator>(Streaming_Service &pli1, Streaming_Service &pli2)
+        -:   60:{
+    #####:   61:	return pli1.getPrice() > pli2.getPrice();
+        -:   62:}
+        -:   63:

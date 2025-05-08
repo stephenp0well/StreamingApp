@@ -21,7 +21,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				},
 				{
@@ -47,7 +48,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-googletest.googlemock-Debug-d3e6cee0c6c66a82aa99.json",
+					"jsonFile" : "directory-googletest.googlemock-Debug-39aa6f262d39055a607c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -57,14 +58,14 @@
 					"source" : "googletest/googlemock",
 					"targetIndexes" : 
 					[
-						2,
-						3
+						3,
+						4
 					]
 				},
 				{
 					"build" : "googletest/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-googletest.googletest-Debug-6e132a6d3f1252571241.json",
+					"jsonFile" : "directory-googletest.googletest-Debug-03a427cd73dec0d3bc2d.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -74,8 +75,8 @@
 					"source" : "googletest/googletest",
 					"targetIndexes" : 
 					[
-						4,
-						5
+						5,
+						6
 					]
 				}
 			],
@@ -95,7 +96,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				},
 				{
@@ -123,8 +125,8 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						2,
-						3
+						3,
+						4
 					]
 				},
 				{
@@ -136,8 +138,8 @@
 					"parentIndex" : 2,
 					"targetIndexes" : 
 					[
-						4,
-						5
+						5,
+						6
 					]
 				}
 			],
@@ -146,15 +148,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MediaTests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MediaTests-Debug-5179546b616eaccd6429.json",
+					"jsonFile" : "target-MediaTests-Debug-156abd2ad4c1eb622d13.json",
 					"name" : "MediaTests",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "StreamingMediaApp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StreamingMediaApp-Debug-02115dafee7e73a03080.json",
+					"jsonFile" : "target-StreamingMediaApp-Debug-2496f3445eef680afc85.json",
 					"name" : "StreamingMediaApp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "coverage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-coverage-Debug-d56bd837d987906d776f.json",
+					"name" : "coverage",
 					"projectIndex" : 0
 				},
 				{

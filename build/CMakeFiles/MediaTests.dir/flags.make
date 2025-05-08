@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/MediaTests.dir/includes_CXX.rsp
 
-CXX_FLAGS = -g -std=gnu++14
+CXX_FLAGS =  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14
 

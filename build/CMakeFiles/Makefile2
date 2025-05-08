@@ -80,6 +80,7 @@ preinstall: googletest/preinstall
 # The main recursive "clean" target.
 clean: CMakeFiles/StreamingMediaApp.dir/clean
 clean: CMakeFiles/MediaTests.dir/clean
+clean: CMakeFiles/coverage.dir/clean
 clean: googletest/clean
 .PHONY : clean
 
@@ -156,7 +157,7 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest_main.dir/cle
 CMakeFiles/StreamingMediaApp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StreamingMediaApp.dir\build.make CMakeFiles/StreamingMediaApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StreamingMediaApp.dir\build.make CMakeFiles/StreamingMediaApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=8,9,10,11,12,13,14 "Built target StreamingMediaApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=9,10,11,12,13,14,15 "Built target StreamingMediaApp"
 .PHONY : CMakeFiles/StreamingMediaApp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -185,15 +186,14 @@ CMakeFiles/StreamingMediaApp.dir/clean:
 
 # All Build rule for target.
 CMakeFiles/MediaTests.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-CMakeFiles/MediaTests.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MediaTests.dir\build.make CMakeFiles/MediaTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MediaTests.dir\build.make CMakeFiles/MediaTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Built target MediaTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8 "Built target MediaTests"
 .PHONY : CMakeFiles/MediaTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MediaTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/MediaTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" 0
 .PHONY : CMakeFiles/MediaTests.dir/rule
@@ -213,13 +213,44 @@ CMakeFiles/MediaTests.dir/clean:
 .PHONY : CMakeFiles/MediaTests.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/coverage.dir
+
+# All Build rule for target.
+CMakeFiles/coverage.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coverage.dir\build.make CMakeFiles/coverage.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coverage.dir\build.make CMakeFiles/coverage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=16 "Built target coverage"
+.PHONY : CMakeFiles/coverage.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/coverage.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/coverage.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" 0
+.PHONY : CMakeFiles/coverage.dir/rule
+
+# Convenience name for target.
+coverage: CMakeFiles/coverage.dir/rule
+.PHONY : coverage
+
+# codegen rule for target.
+CMakeFiles/coverage.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coverage.dir\build.make CMakeFiles/coverage.dir/codegen
+.PHONY : CMakeFiles/coverage.dir/codegen
+
+# clean rule for target.
+CMakeFiles/coverage.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coverage.dir\build.make CMakeFiles/coverage.dir/clean
+.PHONY : CMakeFiles/coverage.dir/clean
+
+#=============================================================================
 # Target rules for target googletest/googlemock/CMakeFiles/gmock.dir
 
 # All Build rule for target.
 googletest/googlemock/CMakeFiles/gmock.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=15,16 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=17,18 "Built target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -251,7 +282,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMake
 googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=17,18 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=19,20 "Built target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -282,7 +313,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest.dir\build.make googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest.dir\build.make googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=19,20 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=21,22 "Built target gtest"
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -313,7 +344,7 @@ googletest/googletest/CMakeFiles/gtest.dir/clean:
 googletest/googletest/CMakeFiles/gtest_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest_main.dir\build.make googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest_main.dir\build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=21,22 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=23,24 "Built target gtest_main"
 .PHONY : googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.

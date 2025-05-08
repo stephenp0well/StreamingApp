@@ -1,0 +1,167 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/TV_Series.cpp
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/TV_Series.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/TV_Series.gcda
+        -:    0:Runs:9
+        -:    1:#include "TV_Series.h"
+        -:    2:#include "Director.h"  // Include Director.h to access full definition
+        -:    3:#include <fstream>
+        -:    4:#include <limits> // Add this for std::numeric_limits
+        -:    5:
+    #####:    6:TV_Series::TV_Series() // Default constructor
+        -:    7:{
+    #####:    8:    numEpisodes = 0;
+    #####:    9:    numSeasons = 0;
+    #####:   10:}
+        -:   11:
+       18:   12:TV_Series::TV_Series(string n, string rd, int ne, int ns, Director* d, Streaming_Service s): Media(n, rd, d, s), numEpisodes(ne), numSeasons(ns) // Constructor with initialiser list
+        -:   13:{
+       18:   14:    cout << "***TV_Series constructor with initialiser list called***" << endl;
+       18:   15:}
+        -:   16:
+      18*:   17:TV_Series::~TV_Series() // Destructor
+        -:   18:{
+        -:   19:
+      18*:   20:}
+------------------
+_ZN9TV_SeriesD0Ev:
+    #####:   17:TV_Series::~TV_Series() // Destructor
+        -:   18:{
+        -:   19:
+    #####:   20:}
+------------------
+_ZN9TV_SeriesD2Ev:
+       18:   17:TV_Series::~TV_Series() // Destructor
+        -:   18:{
+        -:   19:
+       18:   20:}
+------------------
+        -:   21:
+       18:   22:void TV_Series::display() // Overriding the display function from Media
+        -:   23:{
+       18:   24:    cout << "***Displaying from TV_Series***" << endl;
+       18:   25:    Media::display();
+       18:   26:    cout << "Number of Episodes: " << numEpisodes << endl;
+       18:   27:    cout << "Number of Seasons: " << numSeasons << endl;
+       18:   28:}
+        -:   29:
+    #####:   30:void TV_Series::setNumEpisodes(int val) // Setter function
+        -:   31:{
+    #####:   32:    if (val <= 0) // Data integrity check
+        -:   33:    {
+    #####:   34:        cout << "Invalid number of episodes. Please enter a valid number." << endl;
+        -:   35:    }
+        -:   36:    else
+        -:   37:    {
+    #####:   38:        numEpisodes = val;
+        -:   39:    }
+    #####:   40:}
+        -:   41:
+    #####:   42:void TV_Series::setNumSeasons(int val) // Setter function
+        -:   43:{
+    #####:   44:    if (val <= 0) // Data integrity check
+        -:   45:    {
+    #####:   46:        cout << "Invalid number of seasons. Please enter a valid number." << endl;
+        -:   47:    }
+        -:   48:    else
+        -:   49:    {
+    #####:   50:        numSeasons = val;
+        -:   51:    }
+    #####:   52:}
+        -:   53:
+        -:   54:// Overloaded comparison operators
+    #####:   55:bool operator==(TV_Series &pli1, TV_Series &pli2)
+        -:   56:{
+    #####:   57:	return pli1.getNumEpisodes() == pli2.getNumEpisodes() && pli1.getNumSeasons() == pli2.getNumSeasons();
+        -:   58:}
+        -:   59:
+    #####:   60:bool operator!=(TV_Series &pli1, TV_Series &pli2)
+        -:   61:{
+    #####:   62:	return pli1.getNumEpisodes() != pli2.getNumEpisodes() || pli1.getNumSeasons() != pli2.getNumSeasons();
+        -:   63:}	
+        -:   64:
+    #####:   65:bool operator<(TV_Series &pli1, TV_Series &pli2)
+        -:   66:{
+    #####:   67:	return pli1.getNumSeasons() < pli2.getNumSeasons();
+        -:   68:}
+        -:   69:
+    #####:   70:bool operator>(TV_Series &pli1, TV_Series &pli2)
+        -:   71:{
+    #####:   72:	return pli1.getNumSeasons() > pli2.getNumSeasons();
+        -:   73:}
+        -:   74:// Overloaded ostream operator
+    #####:   75:ostream& operator<<(ostream& os,  TV_Series& tvSeries) {
+    #####:   76:    os << "Episodes: " << tvSeries.getNumEpisodes()
+    #####:   77:       << ", Seasons: " << tvSeries.getNumSeasons();
+    #####:   78:    return os;
+        -:   79:}
+        -:   80:// Overloaded istream operator
+    #####:   81:istream& operator>>(istream& is, TV_Series& tvSeries) {
+        -:   82:    int episodes, seasons;
+        -:   83:
+    #####:   84:    cout << "Enter number of episodes: ";
+    #####:   85:    is >> episodes;
+    #####:   86:    cout << "Enter number of seasons: ";
+    #####:   87:    is >> seasons;
+        -:   88:
+    #####:   89:    tvSeries.setNumEpisodes(episodes);
+    #####:   90:    tvSeries.setNumSeasons(seasons);
+        -:   91:
+    #####:   92:    return is;
+        -:   93:}
+        -:   94:
+    #####:   95:void TV_Series::saveToFile(ofstream& out) {
+    #####:   96:    out << "TVSeries" << '\n';
+    #####:   97:    out << getName() << '\n';
+    #####:   98:    out << getReleaseDate() << '\n';
+    #####:   99:    out << numEpisodes << '\n';
+    #####:  100:    out << numSeasons << '\n';
+        -:  101:    
+        -:  102:    // Use accessor methods for private members of the Media class
+    #####:  103:    Director* dir = getDirector();
+    #####:  104:    if (dir) {
+    #####:  105:        out << dir->getExperienceYears() << '\n';
+    #####:  106:        out << dir->getAwardsWon() << '\n';
+        -:  107:    } else {
+    #####:  108:        out << "0\n0\n"; // Default values if no director
+        -:  109:    }
+        -:  110:    
+    #####:  111:    Streaming_Service service = getStreamingService();
+    #####:  112:    out << service.getPrice() << '\n';
+    #####:  113:    out << service.getAvailableRegion() << '\n';
+    #####:  114:}
+        -:  115:
+    #####:  116:void TV_Series::loadFromFile(ifstream& in) {
+    #####:  117:    string name, releaseDate, region;
+        -:  118:    int episodesVal, seasonsVal, exp, awards;
+        -:  119:    double price;
+        -:  120:
+        -:  121:    // Read data from file
+    #####:  122:    getline(in, name);
+    #####:  123:    getline(in, releaseDate);
+        -:  124:    
+        -:  125:    // Convert ifstream to istream& for proper operator>> usage
+    #####:  126:    istream& inStream = in;
+        -:  127:    
+    #####:  128:    inStream >> episodesVal;
+    #####:  129:    inStream >> seasonsVal;
+    #####:  130:    inStream >> exp;
+    #####:  131:    inStream >> awards;
+    #####:  132:    inStream >> price;
+    #####:  133:    inStream.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Fixed: added std:: prefix
+    #####:  134:    std::getline(inStream, region);
+        -:  135:    
+        -:  136:    // Set values using public methods
+    #####:  137:    setName(name);
+    #####:  138:    setReleaseDate(releaseDate);
+    #####:  139:    setNumEpisodes(episodesVal);
+    #####:  140:    setNumSeasons(seasonsVal);
+        -:  141:    
+        -:  142:    // Create and set director
+    #####:  143:    Director* newDirector = new Director(exp, awards);
+    #####:  144:    setDirector(newDirector, true); // Take ownership of this director
+    #####:  145:    newDirector->addMedia(this);
+        -:  146:    
+        -:  147:    // Create and set streaming service
+    #####:  148:    Streaming_Service service(price, region);
+    #####:  149:    setStreamingService(service);
+    #####:  150:}

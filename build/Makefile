@@ -197,6 +197,19 @@ MediaTests/fast:
 .PHONY : MediaTests/fast
 
 #=============================================================================
+# Target rules for targets named coverage
+
+# Build rule for target.
+coverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 coverage
+.PHONY : coverage
+
+# fast build rule for target.
+coverage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coverage.dir\build.make CMakeFiles/coverage.dir/build
+.PHONY : coverage/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -368,6 +381,21 @@ main.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StreamingMediaApp.dir\build.make CMakeFiles/StreamingMediaApp.dir/main.s
 .PHONY : main.s
 
+# target to build an object file
+test_main.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MediaTests.dir\build.make CMakeFiles/MediaTests.dir/test_main.obj
+.PHONY : test_main.obj
+
+# target to preprocess a source file
+test_main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MediaTests.dir\build.make CMakeFiles/MediaTests.dir/test_main.i
+.PHONY : test_main.i
+
+# target to generate assembly for a file
+test_main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MediaTests.dir\build.make CMakeFiles/MediaTests.dir/test_main.s
+.PHONY : test_main.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -381,6 +409,7 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... test
+	@echo ... coverage
 	@echo ... MediaTests
 	@echo ... StreamingMediaApp
 	@echo ... gmock
@@ -408,6 +437,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... test_main.obj
+	@echo ... test_main.i
+	@echo ... test_main.s
 .PHONY : help
 
 

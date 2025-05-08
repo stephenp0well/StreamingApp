@@ -1,0 +1,150 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Media.cpp
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Media.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Media.gcda
+        -:    0:Runs:9
+        -:    1:#include "Media.h"
+        -:    2:#include "Director.h"
+        -:    3:#include <iostream>
+        -:    4:#include <fstream>
+        -:    5:#include <string>
+        -:    6:
+        -:    7:using namespace std;
+        -:    8:
+        -:    9:// Initialize static member
+        -:   10:int Media::mediaCount = 0; // Static variable to keep track of the number of Media objects created
+        -:   11:
+        -:   12:// Copy constructor
+    #####:   13:Media::Media(const Media& objBeingCopied) 
+    #####:   14:    : name(objBeingCopied.name), 
+    #####:   15:      releaseDate(objBeingCopied.releaseDate),
+    #####:   16:      director(objBeingCopied.director ? new Director(*(objBeingCopied.director)) : nullptr),
+    #####:   17:      streamingService(objBeingCopied.streamingService),
+    #####:   18:      ownsDirector(objBeingCopied.director != nullptr) // If we copied a director, we own it
+        -:   19:{
+    #####:   20:    mediaCount++;
+    #####:   21:    cout << "***Media copy constructor called***" << endl;
+    #####:   22:}
+        -:   23:
+        -:   24:// Implement Media's destructor here instead of in the header
+     108*:   25:Media::~Media() {
+     108*:   26:    if (ownsDirector && director) {
+    #####:   27:        delete director;
+        -:   28:    }
+      108:   29:    mediaCount--;
+      108:   30:    cout << "***Media destructor called***" << endl;
+     108*:   31:}
+------------------
+_ZN5MediaD0Ev:
+    #####:   25:Media::~Media() {
+        -:   26:    if (ownsDirector && director) {
+        -:   27:        delete director;
+        -:   28:    }
+        -:   29:    mediaCount--;
+        -:   30:    cout << "***Media destructor called***" << endl;
+    #####:   31:}
+------------------
+_ZN5MediaD2Ev:
+      108:   25:Media::~Media() {
+     108*:   26:    if (ownsDirector && director) {
+    #####:   27:        delete director;
+        -:   28:    }
+      108:   29:    mediaCount--;
+      108:   30:    cout << "***Media destructor called***" << endl;
+      108:   31:}
+------------------
+        -:   32:
+        -:   33:// Assignment operator
+    #####:   34:Media& Media::operator=(const Media& objBeingCopied) {
+        -:   35:    // Check for self-assignment
+    #####:   36:    if (this != &objBeingCopied) {
+        -:   37:        // Clean up old resources
+    #####:   38:        if (ownsDirector && director) {
+    #####:   39:            delete director;
+        -:   40:        }
+        -:   41:        
+        -:   42:        // Copy new resources
+    #####:   43:        name = objBeingCopied.name;
+    #####:   44:        releaseDate = objBeingCopied.releaseDate;
+    #####:   45:        director = objBeingCopied.director ? new Director(*(objBeingCopied.director)) : nullptr;
+    #####:   46:        streamingService = objBeingCopied.streamingService;
+    #####:   47:        ownsDirector = objBeingCopied.director != nullptr;
+        -:   48:    }
+    #####:   49:    return *this;
+        -:   50:}
+        -:   51:
+        -:   52:// Implement setDirector here instead of in the header
+    #####:   53:void Media::setDirector(Director* d, bool takeOwnership) {
+    #####:   54:    if (ownsDirector && director) {
+    #####:   55:        delete director; // Delete old director if we own it
+        -:   56:    }
+    #####:   57:    director = d;
+    #####:   58:    ownsDirector = takeOwnership;
+    #####:   59:}
+        -:   60:
+        -:   61:// Display method implementation
+      108:   62:void Media::display() {
+      108:   63:    cout << "Name: " << name << endl;
+      108:   64:    cout << "Release Date: " << releaseDate << endl;
+        -:   65:    
+      108:   66:    cout << "Director Information:" << endl;
+      108:   67:    if (director) {
+       99:   68:        cout << "Director Experience: " << director->getExperienceYears() << " years" << endl;
+       99:   69:        cout << "Awards Won by Director: " << director->getAwardsWon() << endl;
+        -:   70:        
+        -:   71:        // Show media directed by this director
+       99:   72:        cout << "Directed Media:" << endl;
+       99:   73:        cout << " - " << getName() << " (" << getReleaseDate() << ")" << endl;
+        -:   74:    } else {
+        9:   75:        cout << "No Director Assigned" << endl;
+        -:   76:    }
+        -:   77:    
+      108:   78:    cout << "Streaming on: " << streamingService.getAvailableRegion() << " | ";
+      108:   79:    cout << "Price: $" << streamingService.getPrice() << endl;
+      108:   80:}
+        -:   81:
+        -:   82:// Fix saveToFile implementation
+    #####:   83:void Media::saveToFile(ofstream& out) {
+        -:   84:    // ofstream doesn't support string directly, convert to c_str
+    #####:   85:    out << name.c_str() << '\n';
+    #####:   86:    out << releaseDate.c_str() << '\n';
+        -:   87:    // Other implementations...
+    #####:   88:}
+        -:   89:
+        -:   90:// Fix loadFromFile implementation
+    #####:   91:void Media::loadFromFile(ifstream& in) {
+        -:   92:    // ifstream inherits from istream, so we need to use std::getline
+    #####:   93:    std::getline(in, name);
+    #####:   94:    std::getline(in, releaseDate);
+        -:   95:    // Other implementations...
+    #####:   96:}
+        -:   97:
+        -:   98:// Implement equality operator as member function
+    #####:   99:bool Media::operator==(const Media& other) const {
+    #####:  100:    return (name == other.name && releaseDate == other.releaseDate);
+        -:  101:}
+        -:  102:
+        -:  103:// Implement the operator== as non-member function
+    #####:  104:bool operator==(Media& a, Media& b) {
+    #####:  105:    return a.getName() == b.getName() && a.getReleaseDate() == b.getReleaseDate();
+        -:  106:}
+        -:  107:
+        -:  108:// Implement ostream operator
+    #####:  109:std::ostream& operator<<(std::ostream& os, const Media& media) {
+    #####:  110:    os << "Name: " << media.getName() 
+    #####:  111:       << "\nRelease Date: " << media.getReleaseDate();
+        -:  112:       
+    #####:  113:    Director* dir = media.getDirector();
+    #####:  114:    if (dir) {
+    #####:  115:        os << "\nDirector Experience: " << dir->getExperienceYears() << " years"
+    #####:  116:           << "\nAwards Won by Director: " << dir->getAwardsWon();
+        -:  117:    } else {
+    #####:  118:        os << "\nNo Director Assigned";
+        -:  119:    }
+        -:  120:    
+    #####:  121:    Streaming_Service service = media.getStreamingService();
+    #####:  122:    os << "\nStreaming on: " << service.getAvailableRegion()
+    #####:  123:       << " | Price: $" << service.getPrice();
+        -:  124:       
+    #####:  125:    return os;
+    #####:  126:}
+        -:  127:

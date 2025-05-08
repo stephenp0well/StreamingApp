@@ -1,5 +1,6 @@
 C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/StreamingMediaApp.dir
 C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir
+C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/coverage.dir
 C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/test.dir
 C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/edit_cache.dir
 C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/rebuild_cache.dir

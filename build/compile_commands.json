@@ -1,73 +1,79 @@
 [
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\main.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\main.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\main.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\main.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/main.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/main.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Media.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Media.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Media.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Media.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Media.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/Media.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Movie.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Movie.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Movie.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Movie.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Movie.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/Movie.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\TV_Series.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TV_Series.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\TV_Series.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TV_Series.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/TV_Series.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/TV_Series.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Director.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Director.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Director.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Director.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Director.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/Director.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Streaming_Service.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Streaming_Service.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/StreamingMediaApp.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\StreamingMediaApp.dir\\Streaming_Service.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Streaming_Service.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Streaming_Service.cpp",
   "output": "CMakeFiles/StreamingMediaApp.dir/Streaming_Service.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\TestDisplay.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TestDisplay.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\test_main.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\test_main.cpp\"",
+  "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/test_main.cpp",
+  "output": "CMakeFiles/MediaTests.dir/test_main.obj"
+},
+{
+  "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\TestDisplay.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TestDisplay.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/TestDisplay.cpp",
   "output": "CMakeFiles/MediaTests.dir/TestDisplay.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Media.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Media.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Media.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Media.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Media.cpp",
   "output": "CMakeFiles/MediaTests.dir/Media.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Movie.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Movie.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Movie.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Movie.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Movie.cpp",
   "output": "CMakeFiles/MediaTests.dir/Movie.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\TV_Series.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TV_Series.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\TV_Series.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\TV_Series.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/TV_Series.cpp",
   "output": "CMakeFiles/MediaTests.dir/TV_Series.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Director.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Director.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Director.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Director.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Director.cpp",
   "output": "CMakeFiles/MediaTests.dir/Director.obj"
 },
 {
   "directory": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Streaming_Service.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Streaming_Service.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/MediaTests.dir/includes_CXX.rsp  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g -std=gnu++14 -o CMakeFiles\\MediaTests.dir\\Streaming_Service.obj -c \"C:\\Users\\Stephen\\OneDrive - Technological University Dublin\\TU821-2\\Sem2\\Software\\Project\\Streaming_Service.cpp\"",
   "file": "C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Streaming_Service.cpp",
   "output": "CMakeFiles/MediaTests.dir/Streaming_Service.obj"
 },

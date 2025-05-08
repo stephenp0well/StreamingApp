@@ -1,0 +1,150 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Movie.cpp
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Movie.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Movie.gcda
+        -:    0:Runs:9
+        -:    1:#include "Movie.h"
+        -:    2:#include <iostream>
+        -:    3:#include <iomanip>
+        -:    4:#include <string>
+        -:    5:#include <fstream>
+        -:    6:#include <limits> // Add this for std::numeric_limits
+        -:    7:
+        -:    8:// Implementation of display() method
+       90:    9:void Movie::display() {
+       90:   10:    std::cout << "***Displaying from Movie***" << std::endl;
+       90:   11:    Media::display(); // Call base class display method
+        -:   12:    
+        -:   13:    // Format box office value
+       90:   14:    std::cout << "Box Office Value: ";
+       90:   15:    if (boxOffice >= 1e9) { // Changed from boxOfficeValue to boxOffice
+       18:   16:        std::cout << boxOffice / 1e9 << " billion" << std::endl;
+       72:   17:    } else if (boxOffice >= 1e6) {
+       63:   18:        std::cout << boxOffice / 1e6 << " million" << std::endl;
+        -:   19:    } else {
+        9:   20:        std::cout << boxOffice << std::endl;
+        -:   21:    }
+        -:   22:    
+        -:   23:    // Display rating
+       90:   24:    std::cout << "Rating: " << rating << std::endl;
+       90:   25:}
+        -:   26:
+        -:   27:// Implementation of the saveToFile method
+    #####:   28:void Movie::saveToFile(std::ofstream& out) {
+    #####:   29:    out << "Movie" << '\n';
+    #####:   30:    out << getName() << '\n';
+    #####:   31:    out << getReleaseDate() << '\n';
+    #####:   32:    out << boxOffice << '\n'; // Changed from boxOfficeValue to boxOffice
+    #####:   33:    out << rating << '\n';
+        -:   34:    
+        -:   35:    // Use accessor methods for private members of the Media class
+    #####:   36:    Director* dir = getDirector();
+    #####:   37:    if (dir) {
+    #####:   38:        out << dir->getExperienceYears() << '\n';
+    #####:   39:        out << dir->getAwardsWon() << '\n';
+        -:   40:    } else {
+    #####:   41:        out << "0\n0\n"; // Default values if no director
+        -:   42:    }
+        -:   43:    
+    #####:   44:    Streaming_Service service = getStreamingService();
+    #####:   45:    out << service.getPrice() << '\n';
+    #####:   46:    out << service.getAvailableRegion() << '\n';
+    #####:   47:}
+        -:   48:
+        -:   49:// Implementation of loadFromFile method with correct stream handling
+    #####:   50:void Movie::loadFromFile(std::ifstream& in) {
+    #####:   51:    std::string name, releaseDate;
+        -:   52:    double boxOfficeVal, ratingVal, price;
+        -:   53:    int exp, awards;
+    #####:   54:    std::string region;
+        -:   55:    
+        -:   56:    // Use std:: namespace for all functions and use getline properly
+    #####:   57:    std::getline(in, name);
+    #####:   58:    std::getline(in, releaseDate);
+        -:   59:    
+        -:   60:    // Convert ifstream to istream& for proper operator>> usage
+    #####:   61:    std::istream& inStream = in;
+        -:   62:    
+    #####:   63:    inStream >> boxOfficeVal;
+    #####:   64:    inStream >> ratingVal;
+    #####:   65:    inStream >> exp;
+    #####:   66:    inStream >> awards;
+    #####:   67:    inStream >> price;
+    #####:   68:    inStream.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the newline
+    #####:   69:    std::getline(inStream, region);
+        -:   70:    
+        -:   71:    // Set values using public methods
+    #####:   72:    setName(name);
+    #####:   73:    setReleaseDate(releaseDate);
+    #####:   74:    setBoxOfficeValue(boxOfficeVal);
+    #####:   75:    setRating(ratingVal);
+        -:   76:    
+        -:   77:    // Create and set director
+    #####:   78:    Director* newDirector = new Director(exp, awards);
+    #####:   79:    setDirector(newDirector, true); // Take ownership of this director
+    #####:   80:    newDirector->addMedia(this);
+        -:   81:    
+        -:   82:    // Create and set streaming service
+    #####:   83:    Streaming_Service service(price, region);
+    #####:   84:    setStreamingService(service);
+    #####:   85:}
+        -:   86:
+        -:   87:// Implementation of the operator<< function
+    #####:   88:std::ostream& operator<<(std::ostream& os, const Movie& movie) {
+        -:   89:    // Instead of trying to cast to Media, output each component individually
+    #####:   90:    os << "Name: " << movie.getName() << std::endl
+    #####:   91:       << "Release Date: " << movie.getReleaseDate() << std::endl;
+        -:   92:       
+        -:   93:    // Output director info if available
+    #####:   94:    Director* dir = movie.getDirector();
+    #####:   95:    if (dir) {
+    #####:   96:        os << "Director Experience: " << dir->getExperienceYears() << " years" << std::endl
+    #####:   97:           << "Awards Won by Director: " << dir->getAwardsWon() << std::endl;
+        -:   98:    } else {
+    #####:   99:        os << "No Director Assigned" << std::endl;
+        -:  100:    }
+        -:  101:    
+        -:  102:    // Output streaming service info
+    #####:  103:    Streaming_Service service = movie.getStreamingService();
+    #####:  104:    os << "Streaming on: " << service.getAvailableRegion() 
+    #####:  105:       << " | Price: $" << service.getPrice() << std::endl;
+        -:  106:       
+        -:  107:    // Output movie-specific fields
+    #####:  108:    os << "Box Office: " << movie.getBoxOfficeValue() << std::endl
+    #####:  109:       << "Rating: " << movie.getRating() << std::endl;
+        -:  110:       
+    #####:  111:    return os;
+    #####:  112:}
+        -:  113:
+        -:  114:// Implement the stream input operator
+    #####:  115:std::istream& operator>>(std::istream& in, Movie& movie) {
+    #####:  116:    std::string name, releaseDate;
+        -:  117:    double boxOfficeVal, ratingVal;
+        -:  118:    int exp, awards;
+        -:  119:    double price;
+    #####:  120:    std::string region;
+        -:  121:    
+    #####:  122:    std::getline(in, name);
+    #####:  123:    std::getline(in, releaseDate);
+        -:  124:    
+    #####:  125:    in >> boxOfficeVal;
+    #####:  126:    in >> ratingVal;
+    #####:  127:    in >> exp;
+    #####:  128:    in >> awards;
+    #####:  129:    in >> price;
+    #####:  130:    in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    #####:  131:    std::getline(in, region);
+        -:  132:    
+    #####:  133:    movie.setName(name);
+    #####:  134:    movie.setReleaseDate(releaseDate);
+    #####:  135:    movie.setBoxOfficeValue(boxOfficeVal);
+    #####:  136:    movie.setRating(ratingVal);
+        -:  137:    
+    #####:  138:    Director* newDirector = new Director(exp, awards);
+    #####:  139:    movie.setDirector(newDirector, true);
+    #####:  140:    newDirector->addMedia(&movie);
+        -:  141:    
+    #####:  142:    Streaming_Service service(price, region);
+    #####:  143:    movie.setStreamingService(service);
+        -:  144:    
+    #####:  145:    return in;
+    #####:  146:}

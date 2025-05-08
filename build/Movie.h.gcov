@@ -1,0 +1,78 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Movie.h
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Movie.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Movie.gcda
+        -:    0:Runs:9
+        -:    1:#ifndef MOVIE_H
+        -:    2:#define MOVIE_H
+        -:    3:
+        -:    4:#pragma once
+        -:    5:
+        -:    6:#include "Media.h"
+        -:    7:#include "Director.h"
+        -:    8:#include "Streaming_Service.h"
+        -:    9:
+        -:   10:class Movie : public Media {
+        -:   11:private:
+        -:   12:    double boxOffice; // Box office value in dollars - renamed from boxOfficeValue
+        -:   13:    double rating;    // Movie rating on a scale of 0-10
+        -:   14:
+        -:   15:public:
+        -:   16:    // Default constructor needed for file loading in main.cpp
+        -:   17:    Movie() : Media(), boxOffice(0), rating(0) {
+        -:   18:        std::cout << "***Movie default constructor called***" << std::endl;
+        -:   19:    }
+        -:   20:    
+        -:   21:    // Main constructor
+        -:   22:    Movie(const std::string& name, const std::string& releaseDate, 
+        -:   23:          double boxOffice, double rating, 
+        -:   24:          Director* director, const Streaming_Service& service, 
+        -:   25:          bool takeOwnership = false)
+        -:   26:        : Media(name, releaseDate, director, service, takeOwnership),
+        -:   27:          boxOffice(boxOffice), rating(rating) {
+        -:   28:        std::cout << "***Movie constructor with initialiser list called***" << std::endl;
+        -:   29:    }
+        -:   30:    
+        -:   31:    // Virtual destructor
+    #####:   32:    ~Movie() override {
+    #####:   33:        std::cout << "calling destructor for " << getName() << std::endl;
+        -:   34:        // Base class destructor will handle director deletion if needed
+    #####:   35:    }
+------------------
+_ZN5MovieD0Ev:
+    #####:   32:    ~Movie() override {
+        -:   33:        std::cout << "calling destructor for " << getName() << std::endl;
+        -:   34:        // Base class destructor will handle director deletion if needed
+    #####:   35:    }
+------------------
+_ZN5MovieD1Ev:
+    #####:   32:    ~Movie() override {
+    #####:   33:        std::cout << "calling destructor for " << getName() << std::endl;
+        -:   34:        // Base class destructor will handle director deletion if needed
+    #####:   35:    }
+------------------
+        -:   36:    
+        -:   37:    // Getters and setters
+    #####:   38:    double getBoxOfficeValue() const { return boxOffice; }
+    #####:   39:    double getRating() const { return rating; }
+        -:   40:    
+    #####:   41:    void setBoxOfficeValue(double val) { boxOffice = val; } // Setter function
+    #####:   42:    void setRating(double val) { rating = val; } // Setter function
+        -:   43:    
+        -:   44:    // Virtual methods
+        -:   45:    void display() override;
+        -:   46:    void saveToFile(std::ofstream& out) override;
+        -:   47:    void loadFromFile(std::ifstream& in) override;
+        -:   48:
+        -:   49:    friend ostream& operator<<(ostream& os,  Movie& movie); // ostream operator 
+        -:   50:    friend istream& operator>>(istream& is, Movie& movie); // istream operator
+        -:   51:};
+        -:   52:
+        -:   53:bool operator==(Movie&, Movie&); // Overloading the == operator
+        -:   54:bool operator!=(Movie&, Movie&); // Overloading the != operator
+        -:   55:bool operator<(Movie&, Movie&); // Overloading the < operator
+        -:   56:bool operator>(Movie&, Movie&); // Overloading the > operator
+        -:   57:
+        -:   58:// Declare the stream input operator
+        -:   59:std::istream& operator>>(std::istream& in, Movie& movie);
+        -:   60:
+        -:   61:#endif

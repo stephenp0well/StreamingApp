@@ -1,0 +1,91 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Director.cpp
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Director.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Director.gcda
+        -:    0:Runs:9
+        -:    1:#include "Director.h"
+        -:    2:
+    #####:    3:Director::Director() : maxNofItems(10)// Default constructor
+        -:    4:{
+    #####:    5:    experienceYears = 0;
+    #####:    6:    awardsWon = 0;
+    #####:    7:}
+        -:    8:
+      153:    9:Director::Director(int val1, int val2) : maxNofItems(10) // Constructor with parameters (overloaded constructor)
+        -:   10:{
+      153:   11:    experienceYears = val1;
+      153:   12:    awardsWon = val2;
+      153:   13:}
+        -:   14:
+    #####:   15:Director::Director(const Director& other) : maxNofItems(other.maxNofItems)
+        -:   16:{
+    #####:   17:    experienceYears = other.experienceYears;
+    #####:   18:    awardsWon = other.awardsWon;
+    #####:   19:    mediaList = other.mediaList;
+    #####:   20:}
+        -:   21:
+      153:   22:Director::~Director() // Destructor
+        -:   23:{
+        -:   24:
+      153:   25:}
+        -:   26:
+    #####:   27:void Director::display() // Display function
+        -:   28:{
+        -:   29:    // Displaying director details
+    #####:   30:    cout << "Director Experience: " << experienceYears << " years" << endl;
+    #####:   31:    cout << "Awards Won by Director: " << awardsWon << endl;
+    #####:   32:    std::cout << "Directed Media: " << std::endl;
+        -:   33:
+    #####:   34:    if (mediaList.empty()) {
+    #####:   35:        std::cout << " - No media associated." << std::endl;
+        -:   36:    } else {
+    #####:   37:        for (const auto& media : mediaList) {
+    #####:   38:            std::cout << " - " << media->getName() << " (" << media->getReleaseDate() << ")" << std::endl;
+        -:   39:        }
+        -:   40:    }
+    #####:   41:}
+        -:   42:
+    #####:   43:void Director::addMedia(Media* media) {
+    #####:   44:    if (mediaList.size() >= maxNofItems) {
+    #####:   45:        std::cout << "Cannot add more media to this director." << std::endl;
+    #####:   46:        return;
+        -:   47:    }else
+    #####:   48:    mediaList.push_back(media);
+        -:   49:}
+        -:   50:
+    #####:   51:Director& Director::operator=(const Director& other) // Assignment operator
+        -:   52:{
+    #####:   53:    if (this != &other) {
+    #####:   54:        experienceYears = other.experienceYears;
+    #####:   55:        awardsWon = other.awardsWon;
+    #####:   56:        mediaList = other.mediaList;
+        -:   57:    }
+    #####:   58:    return *this;
+        -:   59:}
+        -:   60:// Ostream operator 
+    #####:   61:ostream& operator<<(ostream& os, Director& director) {
+    #####:   62:    os << "Director Experience: " << director.getExperienceYears() << " years\n"
+    #####:   63:       << "Awards Won by Director: " << director.getAwardsWon() << "\n"
+    #####:   64:       << "Directed Media:\n";
+        -:   65:
+    #####:   66:    if (director.mediaList.empty()) {
+    #####:   67:        os << " - No media associated.\n";
+        -:   68:    } else {
+    #####:   69:        for (const auto& media : director.mediaList) {
+    #####:   70:            os << " - " << media->getName() << " (" << media->getReleaseDate() << ")\n";
+        -:   71:        }
+        -:   72:    }
+    #####:   73:    return os;
+        -:   74:}
+        -:   75:// Istream operator 
+    #####:   76:istream& operator>>(istream& is, Director& director) {
+    #####:   77:    cout << "Enter director years of experience: ";
+    #####:   78:    is >> director.experienceYears;  // Assign directly to the member variable
+    #####:   79:    is.ignore();
+    #####:   80:    cout << "Enter number of awards won by director: ";
+    #####:   81:    is >> director.awardsWon;  // Assign directly to the member variable
+    #####:   82:    is.ignore();
+        -:   83:
+    #####:   84:    return is;
+        -:   85:}
+        -:   86:
+        -:   87:

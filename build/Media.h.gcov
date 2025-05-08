@@ -1,0 +1,76 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/Media.h
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Director.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/Director.gcda
+        -:    0:Runs:9
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include <string>
+        -:    4:#include <iostream>
+        -:    5:#include <fstream>
+        -:    6:#include "Streaming_Service.h"
+        -:    7:
+        -:    8:// Forward declaration
+        -:    9:class Director;
+        -:   10:
+        -:   11:class Media {
+        -:   12:private:
+        -:   13:    std::string name;
+        -:   14:    std::string releaseDate;
+        -:   15:    Director* director; // Director pointer
+        -:   16:    Streaming_Service streamingService; // Streaming_Service object for 1:1 relationship
+        -:   17:    bool ownsDirector;
+        -:   18:    static int mediaCount; // Static counter for Media objects
+        -:   19:
+        -:   20:public:
+        -:   21:    // Default constructor needed for file loading
+        -:   22:    Media() : name(""), releaseDate(""), director(nullptr), 
+        -:   23:              streamingService(), ownsDirector(false) {
+        -:   24:        std::cout << "***Media default constructor called***" << std::endl;
+        -:   25:        mediaCount++;
+        -:   26:    }
+        -:   27:    
+        -:   28:    // Main constructor
+        -:   29:    Media(const std::string& name, const std::string& releaseDate, 
+        -:   30:          Director* director, const Streaming_Service& service,
+        -:   31:          bool takeOwnership = false)
+        -:   32:        : name(name), releaseDate(releaseDate), 
+        -:   33:          director(director), streamingService(service),
+        -:   34:          ownsDirector(takeOwnership) {
+        -:   35:        std::cout << "***Media constructor with initializer list called***" << std::endl;
+        -:   36:        mediaCount++;
+        -:   37:    }
+        -:   38:    
+        -:   39:    // Copy constructor
+        -:   40:    Media(const Media& objBeingCopied);
+        -:   41:    
+        -:   42:    // Virtual destructor - implementation moved to .cpp file
+        -:   43:    virtual ~Media();
+        -:   44:    
+        -:   45:    // Assignment operator
+        -:   46:    Media& operator=(const Media& objBeingCopied);
+        -:   47:    
+        -:   48:    // Accessors for private members
+    #####:   49:    std::string getName() const { return name; }
+    #####:   50:    std::string getReleaseDate() const { return releaseDate; }
+        -:   51:    Director* getDirector() const { return director; }
+        -:   52:    Streaming_Service getStreamingService() const { return streamingService; }
+        -:   53:    static int getMediaCount() { return mediaCount; }
+        -:   54:    
+        -:   55:    // Setters for private members
+        -:   56:    void setName(const std::string& n) { name = n; }
+        -:   57:    void setReleaseDate(const std::string& rd) { releaseDate = rd; }
+        -:   58:    void setDirector(Director* d, bool takeOwnership = false);
+        -:   59:    void setStreamingService(const Streaming_Service& s) { streamingService = s; }
+        -:   60:    
+        -:   61:    // Virtual methods that can be overridden by derived classes
+        -:   62:    virtual void display();
+        -:   63:    virtual void saveToFile(std::ofstream& out);
+        -:   64:    virtual void loadFromFile(std::ifstream& in);
+        -:   65:    
+        -:   66:    // Operator overloads
+        -:   67:    bool operator==(const Media& other) const;
+        -:   68:};
+        -:   69:
+        -:   70:// Non-member functions
+        -:   71:std::ostream& operator<<(std::ostream& os, const Media& media);
+        -:   72:bool operator==(Media& a, Media& b);

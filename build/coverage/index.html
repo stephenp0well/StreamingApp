@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Code Coverage Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { color: #333; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background-color: #f2f2f2; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+.good { color: green; font-weight: bold; }
+.medium { color: orange; font-weight: bold; }
+.bad { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Code Coverage Report</h1>
+<table>
+  <tr><th>File</th><th>Coverage</th><th>Lines</th></tr>
+  <tr>
+    <td><a href='Media.cpp.gcov'>Media.cpp</a></td>
+    <td class='medium'>29.87%</td>
+    <td>77</td>
+  </tr>
+  <tr>
+    <td><a href='Movie.cpp.gcov'>Movie.cpp</a></td>
+    <td class='bad'>12.64%</td>
+    <td>87</td>
+  </tr>
+  <tr>
+    <td><a href='TV_Series.cpp.gcov'>TV_Series.cpp</a></td>
+    <td class='bad'>15.12%</td>
+    <td>86</td>
+  </tr>
+  <tr>
+    <td><a href='Director.cpp.gcov'>Director.cpp</a></td>
+    <td class='bad'>11.54%</td>
+    <td>52</td>
+  </tr>
+  <tr>
+    <td><a href='Streaming_Service.cpp.gcov'>Streaming_Service.cpp</a></td>
+    <td class='bad'>17.65%</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td><strong>Overall</strong></td>
+    <td class='bad'><strong>17.56%</strong></td>
+    <td><strong>336</strong></td>
+  </tr>
+</table>
+<h2>Coverage Analysis</h2>
+<p>The coverage data shows that most of your code is not being tested by the current test suite. Here are some suggestions:</p>
+<ul>
+  <li>Add tests for constructors and destructors</li>
+  <li>Add tests for getters and setters</li>
+  <li>Add tests for edge cases and error scenarios</li>
+  <li>Test file I/O operations</li>
+  <li>Test operator overloads</li>
+</ul>
+<p>Click on the file names above to see line-by-line coverage details.</p>
+</body>
+</html>

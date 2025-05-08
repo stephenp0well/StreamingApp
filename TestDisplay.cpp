@@ -240,8 +240,3 @@ TEST_F(DisplayTest, StreamingServiceInfo) {
     EXPECT_TRUE(priceMatchesExact || priceMatchesRounded) 
         << "Expected price format not found. Looking for either '$12.99' or '$12'";
 }
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

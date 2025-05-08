@@ -1,0 +1,44 @@
+        -:    0:Source:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/TV_Series.h
+        -:    0:Graph:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/TV_Series.gcno
+        -:    0:Data:C:/Users/Stephen/OneDrive - Technological University Dublin/TU821-2/Sem2/Software/Project/build/CMakeFiles/MediaTests.dir/TV_Series.gcda
+        -:    0:Runs:9
+        -:    1:#ifndef TV_SERIES_H
+        -:    2:#define TV_SERIES_H
+        -:    3:
+        -:    4:#pragma once
+        -:    5:
+        -:    6:#include "Media.h"
+        -:    7:
+        -:    8:class TV_Series : public Media
+        -:    9:{
+        -:   10:public:
+        -:   11:    TV_Series(); // Default constructor
+        -:   12:    TV_Series(string n, string rd, int ne, int ns, Director* d, Streaming_Service s); // Constructor with initialiser list
+        -:   13:    ~TV_Series(); // Destructor
+        -:   14:
+        -:   15:    void setNumEpisodes(int val); // Setter function
+    #####:   16:    int getNumEpisodes() { return numEpisodes; } // Getter function
+        -:   17:    void setNumSeasons(int val); // Setter function
+    #####:   18:    int getNumSeasons() { return numSeasons; } //  Getter function
+        -:   19:    void display(); // Display function
+        -:   20:    // Overloaded ostream & istream operators
+        -:   21:    friend ostream& operator<<(ostream& os,  TV_Series& tvSeries); // ostream operator
+        -:   22:    friend istream& operator>>(istream& is, TV_Series& tvSeries); // istream operator
+        -:   23:
+        -:   24:    // File I/O implementations
+        -:   25:    void saveToFile(ofstream& out) override;
+        -:   26:    void loadFromFile(ifstream& in) override;
+        -:   27:
+        -:   28:
+        -:   29:private:
+        -:   30:    int numEpisodes;
+        -:   31:    int numSeasons;
+        -:   32:};
+        -:   33:    // Comparison operators 
+        -:   34:    bool operator==(TV_Series& lhs, TV_Series& rhs); 
+        -:   35:    bool operator!=(TV_Series& lhs, TV_Series& rhs); 
+        -:   36:    bool operator<(TV_Series& lhs, TV_Series& rhs); 
+        -:   37:    bool operator>(TV_Series& lhs, TV_Series& rhs); 
+        -:   38:
+        -:   39:
+        -:   40:#endif

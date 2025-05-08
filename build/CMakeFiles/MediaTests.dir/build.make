@@ -71,11 +71,26 @@ include CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/codegen:
 .PHONY : CMakeFiles/MediaTests.dir/codegen
 
+CMakeFiles/MediaTests.dir/test_main.obj: CMakeFiles/MediaTests.dir/flags.make
+CMakeFiles/MediaTests.dir/test_main.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
+CMakeFiles/MediaTests.dir/test_main.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/test_main.cpp
+CMakeFiles/MediaTests.dir/test_main.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MediaTests.dir/test_main.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/test_main.obj -MF CMakeFiles\MediaTests.dir\test_main.obj.d -o CMakeFiles\MediaTests.dir\test_main.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\test_main.cpp"
+
+CMakeFiles/MediaTests.dir/test_main.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MediaTests.dir/test_main.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\test_main.cpp" > CMakeFiles\MediaTests.dir\test_main.i
+
+CMakeFiles/MediaTests.dir/test_main.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MediaTests.dir/test_main.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\test_main.cpp" -o CMakeFiles\MediaTests.dir\test_main.s
+
 CMakeFiles/MediaTests.dir/TestDisplay.obj: CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/TestDisplay.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/TestDisplay.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/TestDisplay.cpp
 CMakeFiles/MediaTests.dir/TestDisplay.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MediaTests.dir/TestDisplay.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MediaTests.dir/TestDisplay.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/TestDisplay.obj -MF CMakeFiles\MediaTests.dir\TestDisplay.obj.d -o CMakeFiles\MediaTests.dir\TestDisplay.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\TestDisplay.cpp"
 
 CMakeFiles/MediaTests.dir/TestDisplay.i: cmake_force
@@ -90,7 +105,7 @@ CMakeFiles/MediaTests.dir/Media.obj: CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/Media.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/Media.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/Media.cpp
 CMakeFiles/MediaTests.dir/Media.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MediaTests.dir/Media.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MediaTests.dir/Media.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/Media.obj -MF CMakeFiles\MediaTests.dir\Media.obj.d -o CMakeFiles\MediaTests.dir\Media.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\Media.cpp"
 
 CMakeFiles/MediaTests.dir/Media.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/MediaTests.dir/Movie.obj: CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/Movie.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/Movie.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/Movie.cpp
 CMakeFiles/MediaTests.dir/Movie.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MediaTests.dir/Movie.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MediaTests.dir/Movie.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/Movie.obj -MF CMakeFiles\MediaTests.dir\Movie.obj.d -o CMakeFiles\MediaTests.dir\Movie.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\Movie.cpp"
 
 CMakeFiles/MediaTests.dir/Movie.i: cmake_force
@@ -120,7 +135,7 @@ CMakeFiles/MediaTests.dir/TV_Series.obj: CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/TV_Series.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/TV_Series.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/TV_Series.cpp
 CMakeFiles/MediaTests.dir/TV_Series.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MediaTests.dir/TV_Series.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MediaTests.dir/TV_Series.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/TV_Series.obj -MF CMakeFiles\MediaTests.dir\TV_Series.obj.d -o CMakeFiles\MediaTests.dir\TV_Series.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\TV_Series.cpp"
 
 CMakeFiles/MediaTests.dir/TV_Series.i: cmake_force
@@ -135,7 +150,7 @@ CMakeFiles/MediaTests.dir/Director.obj: CMakeFiles/MediaTests.dir/flags.make
 CMakeFiles/MediaTests.dir/Director.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/Director.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/Director.cpp
 CMakeFiles/MediaTests.dir/Director.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MediaTests.dir/Director.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MediaTests.dir/Director.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/Director.obj -MF CMakeFiles\MediaTests.dir\Director.obj.d -o CMakeFiles\MediaTests.dir\Director.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\Director.cpp"
 
 CMakeFiles/MediaTests.dir/Director.i: cmake_force
@@ -150,7 +165,7 @@ CMakeFiles/MediaTests.dir/Streaming_Service.obj: CMakeFiles/MediaTests.dir/flags
 CMakeFiles/MediaTests.dir/Streaming_Service.obj: CMakeFiles/MediaTests.dir/includes_CXX.rsp
 CMakeFiles/MediaTests.dir/Streaming_Service.obj: C:/Users/Stephen/OneDrive\ -\ Technological\ University\ Dublin/TU821-2/Sem2/Software/Project/Streaming_Service.cpp
 CMakeFiles/MediaTests.dir/Streaming_Service.obj: CMakeFiles/MediaTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MediaTests.dir/Streaming_Service.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MediaTests.dir/Streaming_Service.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MediaTests.dir/Streaming_Service.obj -MF CMakeFiles\MediaTests.dir\Streaming_Service.obj.d -o CMakeFiles\MediaTests.dir\Streaming_Service.obj -c "C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\Streaming_Service.cpp"
 
 CMakeFiles/MediaTests.dir/Streaming_Service.i: cmake_force
@@ -163,6 +178,7 @@ CMakeFiles/MediaTests.dir/Streaming_Service.s: cmake_force
 
 # Object files for target MediaTests
 MediaTests_OBJECTS = \
+"CMakeFiles/MediaTests.dir/test_main.obj" \
 "CMakeFiles/MediaTests.dir/TestDisplay.obj" \
 "CMakeFiles/MediaTests.dir/Media.obj" \
 "CMakeFiles/MediaTests.dir/Movie.obj" \
@@ -173,6 +189,7 @@ MediaTests_OBJECTS = \
 # External object files for target MediaTests
 MediaTests_EXTERNAL_OBJECTS =
 
+MediaTests.exe: CMakeFiles/MediaTests.dir/test_main.obj
 MediaTests.exe: CMakeFiles/MediaTests.dir/TestDisplay.obj
 MediaTests.exe: CMakeFiles/MediaTests.dir/Media.obj
 MediaTests.exe: CMakeFiles/MediaTests.dir/Movie.obj
@@ -181,12 +198,10 @@ MediaTests.exe: CMakeFiles/MediaTests.dir/Director.obj
 MediaTests.exe: CMakeFiles/MediaTests.dir/Streaming_Service.obj
 MediaTests.exe: CMakeFiles/MediaTests.dir/build.make
 MediaTests.exe: lib/libgtest.a
-MediaTests.exe: lib/libgtest_main.a
-MediaTests.exe: lib/libgtest.a
 MediaTests.exe: CMakeFiles/MediaTests.dir/linkLibs.rsp
 MediaTests.exe: CMakeFiles/MediaTests.dir/objects1.rsp
 MediaTests.exe: CMakeFiles/MediaTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable MediaTests.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable MediaTests.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\MediaTests.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

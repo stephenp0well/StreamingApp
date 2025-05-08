@@ -19,45 +19,17 @@
 	ProcessorCacheSize="64"
 	NumberOfLogicalCPU="16"
 	NumberOfPhysicalCPU="8"
-	TotalVirtualMemory="20149"
+	TotalVirtualMemory="18024"
 	TotalPhysicalMemory="15720"
 	LogicalProcessorsPerPhysical="2"
 	ProcessorClockFrequency="1996"
 	>
 	<Testing>
-		<StartDateTime>May 08 23:12 GMT Daylight Time</StartDateTime>
-		<StartTestTime>1746742335</StartTestTime>
-		<TestList>
-			<Test>./output_tests</Test>
-		</TestList>
-		<Test Status="passed">
-			<Name>output_tests</Name>
-			<Path>.</Path>
-			<FullName>./output_tests</FullName>
-			<FullCommandLine>"C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\MediaTests.exe"</FullCommandLine>
-			<Results>
-				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.028235</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="numeric/double" name="Processors">
-					<Value>1</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Completion Status">
-					<Value>Completed</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Command Line">
-					<Value>"C:\Users\Stephen\OneDrive - Technological University Dublin\TU821-2\Sem2\Software\Project\build\MediaTests.exe"</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Environment">
-					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
-				</NamedMeasurement>
-				<Measurement>
-					<Value encoding="base64" compression="gzip">eJzNk09PwzAMxe/9FD7CpFV04soBxB8hVEDT4DL1kKYetUiTKnG3lU+P200bYxoTJ4jUQ2v75eWX1+nFZmUwbqwl+wbJCBgDB5h5V0HSv0BoiDGOpsPNyuDOuFyZVR3tnLyzFVrpRR429bfmXdVrCrVR7US+RFMYvzxCv7KvhTh1c8IrMoacvXW+UhwNBoMUC1KgnQ3sG83Ow4K4BLLEpAx9oAdD4kgrY7CQgX6okzo8FPaH1hMeFWMhx9caQ5g1xrTR2qPIVbXBvXLnHVQQTRbj264YLnPXMLADXBKvuWpXC9du3459gRuDM3kmJUKq2NNye/IvLVu3NyIoPti3Q61Yl5Abp993fU1XjOHp4ShnOEmgCqdHrib9o6s5AOveaqw75EdY/cwh/T2HsVq8KtPgfwHxrLwKkofjHOJY/tJJSQFq5RncDFgS1wdTklpLWBcqgMfKzbuUkxAGSS4uNWIRVs2lx1A6U3TTydnoHPJWBOIs+gR2+IDn====</Value>
-				</Measurement>
-			</Results>
-		</Test>
-		<EndDateTime>May 08 23:12 GMT Daylight Time</EndDateTime>
-		<EndTestTime>1746742335</EndTestTime>
+		<StartDateTime>May 08 23:47 GMT Daylight Time</StartDateTime>
+		<StartTestTime>1746744438</StartTestTime>
+		<TestList/>
+		<EndDateTime>May 08 23:47 GMT Daylight Time</EndDateTime>
+		<EndTestTime>1746744438</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

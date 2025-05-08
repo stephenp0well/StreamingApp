@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MediaTests.dir/TV_Series.obj.d"
   "CMakeFiles/MediaTests.dir/TestDisplay.obj"
   "CMakeFiles/MediaTests.dir/TestDisplay.obj.d"
+  "CMakeFiles/MediaTests.dir/test_main.obj"
+  "CMakeFiles/MediaTests.dir/test_main.obj.d"
   "MediaTests.exe"
   "MediaTests.exe.manifest"
   "MediaTests.pdb"
