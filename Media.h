@@ -1,51 +1,72 @@
-#ifndef MEDIA_H
-#define MEDIA_H
+#pragma once
+
 #include <string>
 #include <iostream>
-#include "Director.h"
+#include <fstream>
 #include "Streaming_Service.h"
-#pragma once
-using namespace std;
 
-class Director; // Forward declaration of the Director class to avoid compilation error
-
+// Forward declaration
+class Director;
 
 class Media {
-    public:
-        static int mediaCount; // Static variable to keep track of the number of Media objects created
+private:
+    std::string name;
+    std::string releaseDate;
+    Director* director; // Director pointer
+    Streaming_Service streamingService; // Streaming_Service object for 1:1 relationship
+    bool ownsDirector;
+    static int mediaCount; // Static counter for Media objects
 
-        Media(); // default constructor
-        Media(string n, string r, Director* d, Streaming_Service s); // constructor with initialiser list
-        Media(Media& source); // copy constructor
-        Media &operator=(Media &source); // user-defined assignment operator
-        ~Media(); // destructor
+public:
+    // Default constructor needed for file loading
+    Media() : name(""), releaseDate(""), director(nullptr), 
+              streamingService(), ownsDirector(false) {
+        std::cout << "***Media default constructor called***" << std::endl;
+        mediaCount++;
+    }
+    
+    // Main constructor
+    Media(const std::string& name, const std::string& releaseDate, 
+          Director* director, const Streaming_Service& service,
+          bool takeOwnership = false)
+        : name(name), releaseDate(releaseDate), 
+          director(director), streamingService(service),
+          ownsDirector(takeOwnership) {
+        std::cout << "***Media constructor with initializer list called***" << std::endl;
+        mediaCount++;
+    }
+    
+    // Copy constructor
+    Media(const Media& objBeingCopied);
+    
+    // Virtual destructor - implementation moved to .cpp file
+    virtual ~Media();
+    
+    // Assignment operator
+    Media& operator=(const Media& objBeingCopied);
+    
+    // Accessors for private members
+    std::string getName() const { return name; }
+    std::string getReleaseDate() const { return releaseDate; }
+    Director* getDirector() const { return director; }
+    Streaming_Service getStreamingService() const { return streamingService; }
+    static int getMediaCount() { return mediaCount; }
+    
+    // Setters for private members
+    void setName(const std::string& n) { name = n; }
+    void setReleaseDate(const std::string& rd) { releaseDate = rd; }
+    void setDirector(Director* d, bool takeOwnership = false);
+    void setStreamingService(const Streaming_Service& s) { streamingService = s; }
+    
+    // Virtual methods that can be overridden by derived classes
+    virtual void display();
+    virtual void saveToFile(std::ofstream& out);
+    virtual void loadFromFile(std::ifstream& in);
+    
+    // Operator overloads
+    bool operator==(const Media& other) const;
+};
 
-        void setName(string val); // setter function
-        string getName() { return name; } // getter function
-        void setReleaseDate(string val); // setter function
-        string getReleaseDate() { return releaseDate; } // getter function
-        void setStreaming_Service(Streaming_Service); // setter function
-        virtual void display() = 0; // pure virtual function
-
-        Streaming_Service& getStreamingService() { return streamingService; }
-
-        // Virtual functions for saving/loading media objects to/from a file
-        virtual void saveToFile(ofstream& out) = 0;
-        virtual void loadFromFile(ifstream& in) = 0;
-
-        Director* getDirector() { return director; }
-
-
-    protected:
-        string name;
-        string releaseDate;
-
-        Director* director; // Director pointer
-        Streaming_Service streamingService; // Streaming_Service object for 1:1 relationship
-        
-    };
-
-        bool operator==(Media& lhs, Media& rhs); 
-        bool operator!=(Media& lhs, Media& rhs); 
-
-#endif
+// Non-member functions
+std::ostream& operator<<(std::ostream& os, const Media& media);
+bool operator==(Media& a, Media& b);

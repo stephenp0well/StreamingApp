@@ -4,37 +4,58 @@
 #pragma once
 
 #include "Media.h"
+#include "Director.h"
+#include "Streaming_Service.h"
 
-class Movie : public Media // Inheriting from the Media class
-{
-public:
-    Movie(); // Default constructor
-    Movie(string n, string rd, double b, double r, Director* d, Streaming_Service s); // Constructor with initialiser list
-    ~Movie(); // Destructor
-
-    void setBoxOfficeValue(double val); // Setter function
-    double getBoxOfficeValue() { return boxOfficeValue; } // Getter function
-    void setRating(double val); // Setter function
-    double getRating() { return rating; } // Getter function
-    void display(); // Overriding the display function from Media
-
-    friend ostream& operator<<(ostream& os,  Movie& movie); // ostream opeator 
-    friend istream& operator>>(istream& is, Movie& movie); // istream operator
-
-    // Overriding pure virtual functions from Media for file I/O
-    void saveToFile(ofstream& out) override;
-    void loadFromFile(ifstream& in) override;
-
-
+class Movie : public Media {
 private:
-    double boxOfficeValue; 
-    double rating;
+    double boxOffice; // Box office value in dollars - renamed from boxOfficeValue
+    double rating;    // Movie rating on a scale of 0-10
+
+public:
+    // Default constructor needed for file loading in main.cpp
+    Movie() : Media(), boxOffice(0), rating(0) {
+        std::cout << "***Movie default constructor called***" << std::endl;
+    }
     
+    // Main constructor
+    Movie(const std::string& name, const std::string& releaseDate, 
+          double boxOffice, double rating, 
+          Director* director, const Streaming_Service& service, 
+          bool takeOwnership = false)
+        : Media(name, releaseDate, director, service, takeOwnership),
+          boxOffice(boxOffice), rating(rating) {
+        std::cout << "***Movie constructor with initialiser list called***" << std::endl;
+    }
+    
+    // Virtual destructor
+    ~Movie() override {
+        std::cout << "calling destructor for " << getName() << std::endl;
+        // Base class destructor will handle director deletion if needed
+    }
+    
+    // Getters and setters
+    double getBoxOfficeValue() const { return boxOffice; }
+    double getRating() const { return rating; }
+    
+    void setBoxOfficeValue(double val) { boxOffice = val; } // Setter function
+    void setRating(double val) { rating = val; } // Setter function
+    
+    // Virtual methods
+    void display() override;
+    void saveToFile(std::ofstream& out) override;
+    void loadFromFile(std::ifstream& in) override;
+
+    friend ostream& operator<<(ostream& os,  Movie& movie); // ostream operator 
+    friend istream& operator>>(istream& is, Movie& movie); // istream operator
 };
-    
-    bool operator==(Movie&, Movie&); // Overloading the == operator
-    bool operator!=(Movie&, Movie&); // Overloading the != operator
-    bool operator<(Movie&, Movie&); // Overloading the < operator
-    bool operator>(Movie&, Movie&); // Overloading the > operator
+
+bool operator==(Movie&, Movie&); // Overloading the == operator
+bool operator!=(Movie&, Movie&); // Overloading the != operator
+bool operator<(Movie&, Movie&); // Overloading the < operator
+bool operator>(Movie&, Movie&); // Overloading the > operator
+
+// Declare the stream input operator
+std::istream& operator>>(std::istream& in, Movie& movie);
 
 #endif

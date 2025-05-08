@@ -1,5 +1,7 @@
 #include "TV_Series.h"
+#include "Director.h"  // Include Director.h to access full definition
 #include <fstream>
+#include <limits> // Add this for std::numeric_limits
 
 TV_Series::TV_Series() // Default constructor
 {
@@ -91,34 +93,58 @@ istream& operator>>(istream& is, TV_Series& tvSeries) {
 }
 
 void TV_Series::saveToFile(ofstream& out) {
-    out << "TVSeries\n";
+    out << "TVSeries" << '\n';
     out << getName() << '\n';
     out << getReleaseDate() << '\n';
     out << numEpisodes << '\n';
     out << numSeasons << '\n';
-    out << director->getExperienceYears() << '\n';
-    out << director->getAwardsWon() << '\n';
-    out << streamingService.getPrice() << '\n';
-    out << streamingService.getAvailableRegion() << '\n';
+    
+    // Use accessor methods for private members of the Media class
+    Director* dir = getDirector();
+    if (dir) {
+        out << dir->getExperienceYears() << '\n';
+        out << dir->getAwardsWon() << '\n';
+    } else {
+        out << "0\n0\n"; // Default values if no director
+    }
+    
+    Streaming_Service service = getStreamingService();
+    out << service.getPrice() << '\n';
+    out << service.getAvailableRegion() << '\n';
 }
 
 void TV_Series::loadFromFile(ifstream& in) {
     string name, releaseDate, region;
-    int eps, seasons, exp, awards, price;
+    int episodesVal, seasonsVal, exp, awards;
+    double price;
 
+    // Read data from file
     getline(in, name);
     getline(in, releaseDate);
-    in >> eps >> seasons >> exp >> awards >> price;
-    in.ignore(); // Ignore newline after price
-    getline(in, region);
-
+    
+    // Convert ifstream to istream& for proper operator>> usage
+    istream& inStream = in;
+    
+    inStream >> episodesVal;
+    inStream >> seasonsVal;
+    inStream >> exp;
+    inStream >> awards;
+    inStream >> price;
+    inStream.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Fixed: added std:: prefix
+    std::getline(inStream, region);
+    
+    // Set values using public methods
     setName(name);
     setReleaseDate(releaseDate);
-    setNumEpisodes(eps);
-    setNumSeasons(seasons);
-
-    director = new Director(exp, awards);
-    director->addMedia(this); // ✅ Fix: Track this media
-    streamingService = Streaming_Service(price, region);
-
+    setNumEpisodes(episodesVal);
+    setNumSeasons(seasonsVal);
+    
+    // Create and set director
+    Director* newDirector = new Director(exp, awards);
+    setDirector(newDirector, true); // Take ownership of this director
+    newDirector->addMedia(this);
+    
+    // Create and set streaming service
+    Streaming_Service service(price, region);
+    setStreamingService(service);
 }

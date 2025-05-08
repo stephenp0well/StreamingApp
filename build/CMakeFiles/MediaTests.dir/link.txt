@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\MediaTests.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\MediaTests.dir/objects.a @CMakeFiles\MediaTests.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\MediaTests.dir/objects.a -Wl,--no-whole-archive -o MediaTests.exe -Wl,--out-implib,libMediaTests.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MediaTests.dir\linkLibs.rsp

@@ -1,135 +1,127 @@
 #include "Media.h"
 #include "Director.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
+using namespace std;
+
+// Initialize static member
 int Media::mediaCount = 0; // Static variable to keep track of the number of Media objects created
 
-Media::Media()  // Default constructor
+// Copy constructor
+Media::Media(const Media& objBeingCopied) 
+    : name(objBeingCopied.name), 
+      releaseDate(objBeingCopied.releaseDate),
+      director(objBeingCopied.director ? new Director(*(objBeingCopied.director)) : nullptr),
+      streamingService(objBeingCopied.streamingService),
+      ownsDirector(objBeingCopied.director != nullptr) // If we copied a director, we own it
 {
-    name = "";
-    releaseDate = "";
-    director = nullptr;
-    mediaCount++;   
-}
-
-Media::Media(string n, string r, Director* d, Streaming_Service s) // Constructor with parameters
-    : name(n), releaseDate(r), director(d), streamingService(s) // Constructor with initializer list
-{
-    cout << "***Media constructor with initializer list called***" << endl;
     mediaCount++;
-    if (director) {
-        director->addMedia(this); // Associate media with the director
+    cout << "***Media copy constructor called***" << endl;
+}
+
+// Implement Media's destructor here instead of in the header
+Media::~Media() {
+    if (ownsDirector && director) {
+        delete director;
     }
+    mediaCount--;
+    cout << "***Media destructor called***" << endl;
 }
 
-Media::Media(Media &objBeingCopied) // Copy constructor
-{
-	cout << "user-defined copy constructor, object being copied is " << objBeingCopied.getName() << endl;
-	// shallow copy of the variable values that are not pointers values 
-	this->getName() = objBeingCopied.getName();
-	this->getReleaseDate() = objBeingCopied.getReleaseDate();
-    this->streamingService = objBeingCopied.streamingService;
-	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
-	if (objBeingCopied.director) // check that the pointer for the object being copied has a value    
-	{
-		director = new Director(); // allocate dynamic memory from the heap for our copy
-		*director = *(objBeingCopied.director); // copy the values the pointer points to and not the pointer value itself
-	}
-	else {
-		director = 0; // set the pointer to null to avoid dangling pointer
-	}
-	mediaCount++; // increment the media count
+// Assignment operator
+Media& Media::operator=(const Media& objBeingCopied) {
+    // Check for self-assignment
+    if (this != &objBeingCopied) {
+        // Clean up old resources
+        if (ownsDirector && director) {
+            delete director;
+        }
+        
+        // Copy new resources
+        name = objBeingCopied.name;
+        releaseDate = objBeingCopied.releaseDate;
+        director = objBeingCopied.director ? new Director(*(objBeingCopied.director)) : nullptr;
+        streamingService = objBeingCopied.streamingService;
+        ownsDirector = objBeingCopied.director != nullptr;
+    }
+    return *this;
 }
 
-Media &Media::operator=(Media &objBeingCopied) // over-loaded assignment operator for deep coyping of pointer fields
-{
-	cout << "overloaded assignment operator, object being copied is " << objBeingCopied.getName() << endl;
-	// check for self-assignment to avoid copying an object to itself e.g. s1 = s1;
-	if (this == &objBeingCopied) 
-		return *this; //skip the rest of the function as there is no need for it
-
-    // deallocate any memory that the object being updated is holding!
-	delete director;
-	// shallow copy of the variable values that are not pointers values
-	this->name = objBeingCopied.getName();
-	this->releaseDate = objBeingCopied.getReleaseDate();
-    this->streamingService = objBeingCopied.streamingService;
-
-	// deep copy the pointer variable (copy the values the pointer points to and not the pointer value itself)
-	if (objBeingCopied.director) //check that the pointer for the object being copied has a value
-	{
-		director = new Director(); // allocate new memory to hold the Director details for the object being updated
-		*director = *objBeingCopied.director; // copy the values the pointer points to and not the pointer value itself
-	}
-	else {
-		director = 0; // set the pointer to null to avoid dangling pointer
-	}
-    return *this; // return the updated object
+// Implement setDirector here instead of in the header
+void Media::setDirector(Director* d, bool takeOwnership) {
+    if (ownsDirector && director) {
+        delete director; // Delete old director if we own it
+    }
+    director = d;
+    ownsDirector = takeOwnership;
 }
 
-Media::~Media() { //user defined destuctor to handle deallocation of dynamic memory
-	cout<<"calling destructor for "<< this->getName()<<endl;
-	mediaCount--; //decrement the counter
-	if (director != nullptr) // Check if the director pointer is not null
-	{
-		delete director;	  // Release memory allocated for the director object
-		director = nullptr; // Set the pointer to null to avoid double deletion
-	}
-}
-
-void Media::display() // Display function
-{
+// Display method implementation
+void Media::display() {
     cout << "Name: " << name << endl;
     cout << "Release Date: " << releaseDate << endl;
-
-    if (director) {  // Check if the director is assigned
-        cout << "Director Information: " << endl;
-        director->display(); 
+    
+    cout << "Director Information:" << endl;
+    if (director) {
+        cout << "Director Experience: " << director->getExperienceYears() << " years" << endl;
+        cout << "Awards Won by Director: " << director->getAwardsWon() << endl;
+        
+        // Show media directed by this director
+        cout << "Directed Media:" << endl;
+        cout << " - " << getName() << " (" << getReleaseDate() << ")" << endl;
     } else {
-        cout << "No Director Assigned." << endl;
+        cout << "No Director Assigned" << endl;
     }
-
-    streamingService.display(); // Display streaming service details
+    
+    cout << "Streaming on: " << streamingService.getAvailableRegion() << " | ";
+    cout << "Price: $" << streamingService.getPrice() << endl;
 }
 
-void Media::setName(string val) // Setter function
-{
-    if (val == "") // Data integrity check
-    {
-        cout << "Invalid name. Please enter a valid name." << endl;
-    }
-    else
-    {
-        name = val;
-    }
+// Fix saveToFile implementation
+void Media::saveToFile(ofstream& out) {
+    // ofstream doesn't support string directly, convert to c_str
+    out << name.c_str() << '\n';
+    out << releaseDate.c_str() << '\n';
+    // Other implementations...
 }
 
-void Media::setReleaseDate(string val) // Setter function
-{
-    if (val == "") // Data integrity check
-    {
-        cout << "Invalid release date. Please enter a valid date." << endl;
+// Fix loadFromFile implementation
+void Media::loadFromFile(ifstream& in) {
+    // ifstream inherits from istream, so we need to use std::getline
+    std::getline(in, name);
+    std::getline(in, releaseDate);
+    // Other implementations...
+}
+
+// Implement equality operator as member function
+bool Media::operator==(const Media& other) const {
+    return (name == other.name && releaseDate == other.releaseDate);
+}
+
+// Implement the operator== as non-member function
+bool operator==(Media& a, Media& b) {
+    return a.getName() == b.getName() && a.getReleaseDate() == b.getReleaseDate();
+}
+
+// Implement ostream operator
+std::ostream& operator<<(std::ostream& os, const Media& media) {
+    os << "Name: " << media.getName() 
+       << "\nRelease Date: " << media.getReleaseDate();
+       
+    Director* dir = media.getDirector();
+    if (dir) {
+        os << "\nDirector Experience: " << dir->getExperienceYears() << " years"
+           << "\nAwards Won by Director: " << dir->getAwardsWon();
+    } else {
+        os << "\nNo Director Assigned";
     }
-    else
-    {
-        releaseDate = val;
-    }
+    
+    Streaming_Service service = media.getStreamingService();
+    os << "\nStreaming on: " << service.getAvailableRegion()
+       << " | Price: $" << service.getPrice();
+       
+    return os;
 }
-
-void Media::setStreaming_Service(Streaming_Service stream) // Setter function
-{
-    streamingService = stream;
-}
-
-
-// Overloaded Comparison Operators 
-
-bool operator==(Media &pli1, Media &pli2)
-{
-	return pli1.getName() == pli2.getName() && pli1.getReleaseDate() == pli2.getReleaseDate();
-}
-
-bool operator!=(Media &pli1, Media &pli2)
-{
-	return pli1.getName() != pli2.getName() || pli1.getReleaseDate() != pli2.getReleaseDate();
-}	
 
